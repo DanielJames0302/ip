@@ -4,7 +4,7 @@ public class BuddyTaskNotFoundException extends BuddyException {
     private final int taskListSize;
 
     /**
-     * Constructor for BuddyTaskNotFoundException
+     * Constructor for BuddyTaskNotFoundException.
      *
      * @param taskListSize current length of the task list.
      */
@@ -13,7 +13,7 @@ public class BuddyTaskNotFoundException extends BuddyException {
     }
 
     /**
-     * Retrieve information string of the exception
+     * Retrieve information string of the exception.
      *
      * @return information string of the exception.
      */

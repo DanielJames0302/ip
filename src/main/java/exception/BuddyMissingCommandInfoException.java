@@ -4,7 +4,7 @@ public class BuddyMissingCommandInfoException extends BuddyException{
     private final String command;
 
     /**
-     * Constructor for BuddyMissingCommandInfoException
+     * Constructor for BuddyMissingCommandInfoException.
      *
      * @param command the command that don't have description.
      */
@@ -13,7 +13,7 @@ public class BuddyMissingCommandInfoException extends BuddyException{
     }
 
     /**
-     * Retrieve information string of the exception
+     * Retrieve information string of the exception.
      *
      * @return information string of the exception.
      */

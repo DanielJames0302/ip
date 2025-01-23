@@ -4,7 +4,7 @@ public class BuddyInvalidCommandException extends BuddyException{
     private final String command;
 
     /**
-     * Constructor for BuddyInvalidCommandException
+     * Constructor for BuddyInvalidCommandException.
      *
      * @param userCommand invalid command from the user.
      */
@@ -13,7 +13,7 @@ public class BuddyInvalidCommandException extends BuddyException{
     }
 
     /**
-     * Retrieve information string of the exception
+     * Retrieve information string of the exception.
      *
      * @return information string of the exception.
      */

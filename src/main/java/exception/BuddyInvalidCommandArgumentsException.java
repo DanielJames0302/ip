@@ -3,7 +3,7 @@ package exception;
 public class BuddyInvalidCommandArgumentsException extends BuddyException{
 
     /**
-     * Retrieve information string of the exception
+     * Retrieve information string of the exception.
      *
      * @return information string of the exception.
      */
