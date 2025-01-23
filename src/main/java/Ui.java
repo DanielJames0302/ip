@@ -62,7 +62,7 @@ public class Ui {
     }
 
     public static String showError(BuddyException error) {
-        return Ui.BORDER + "\n" + error.toString() + "\n" + Ui.BORDER  ;
+        return Ui.BORDER + "\n" + error.toString() + "\n" + Ui.BORDER;
     }
 
     public static String deleteTask(Task task, TaskList taskList) {

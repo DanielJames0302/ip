@@ -48,26 +48,35 @@ public class Buddy {
 
     }
 
-    private String addTodo(String commandInfo) throws BuddyException {
+    private String addTodo(String commandInfo) {
         Task task = new Todo(commandInfo);
         this.taskList.addTask(task);
         return Ui.addTask(task, taskList);
     }
 
-    private String addDeadline(String commandInfo) {
-        String[] commandArgs = commandInfo.split(" /by ", 2);
-        Task task = new Deadline(commandArgs[0], commandArgs[1]);
-        this.taskList.addTask(task);
-        return Ui.addTask(task, taskList);
+    private String addDeadline(String commandInfo) throws BuddyException {
+        try {
+            String[] commandArgs = commandInfo.split(" /by ", 2);
+            Task task = new Deadline(commandArgs[0], commandArgs[1]);
+            this.taskList.addTask(task);
+            return Ui.addTask(task, taskList);
+        } catch(IndexOutOfBoundsException error) {
+            throw new BuddyInvalidCommandArgumentsException();
+        }
+
     }
 
-    private String addEvent(String commandInfo) {
-        String[] commandArgs = commandInfo.split(" /from ", 2);
-        String description = commandArgs[0];
-        String[] time = commandArgs[1].split(" /to ", 2);
-        Task task = new Event(description, time[0], time[1]);
-        this.taskList.addTask(task);
-        return Ui.addTask(task, taskList);
+    private String addEvent(String commandInfo) throws BuddyException {
+        try {
+            String[] commandArgs = commandInfo.split(" /from ", 2);
+            String description = commandArgs[0];
+            String[] time = commandArgs[1].split(" /to ", 2);
+            Task task = new Event(description, time[0], time[1]);
+            this.taskList.addTask(task);
+            return Ui.addTask(task, taskList);
+        } catch(IndexOutOfBoundsException error) {
+            throw new BuddyInvalidCommandArgumentsException();
+        }
     }
 
     private String markTask(String commandInfo) throws BuddyException {

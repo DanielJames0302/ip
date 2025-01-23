@@ -11,6 +11,6 @@ public class BuddyMissingCommandInfoException extends BuddyException{
     public String toString() {
         return super.toString()
                 + String.format(" You forgot to put in the " +
-                "description of the command %s", command);
+                "description of the command \"%s\"", command);
     }
 }
