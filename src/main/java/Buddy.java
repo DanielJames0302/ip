@@ -1,3 +1,7 @@
+import exception.BuddyException;
+import exception.BuddyInvalidCommandArgumentsException;
+import exception.BuddyInvalidCommandException;
+import exception.BuddyTaskNotFoundException;
 import task.*;
 
 import java.util.Scanner;
@@ -23,21 +27,27 @@ public class Buddy {
     }
 
     private String response(String userInput) {
-        return switch (Parser.parseInput(userInput)) {
-            case BYE -> {
-                this.exit();
-                yield Ui.bye();
-            }
-            case LIST -> Ui.listTasks(this.taskList);
-            case TODO -> this.addTodo(Parser.parseCommandInfo(userInput));
-            case DEADLINE -> this.addDeadline(Parser.parseCommandInfo(userInput));
-            case EVENT -> this.addEvent(Parser.parseCommandInfo(userInput));
-            case MARK -> this.markTask(Parser.parseCommandInfo(userInput));
-            case UNMARK -> this.unmarkTask(Parser.parseCommandInfo(userInput));
-        };
+        try{
+            return switch (Parser.parseInput(userInput)) {
+                case BYE -> {
+                    this.exit();
+                    yield Ui.bye();
+                }
+                case LIST -> Ui.listTasks(this.taskList);
+                case TODO -> this.addTodo(Parser.parseCommandInfo(userInput));
+                case DEADLINE -> this.addDeadline(Parser.parseCommandInfo(userInput));
+                case EVENT -> this.addEvent(Parser.parseCommandInfo(userInput));
+                case MARK -> this.markTask(Parser.parseCommandInfo(userInput));
+                case UNMARK -> this.unmarkTask(Parser.parseCommandInfo(userInput));
+                default -> throw new BuddyInvalidCommandException(userInput);
+            };
+        } catch(BuddyException error) {
+            return Ui.showError(error);
+        }
+
     }
 
-    private String addTodo(String commandInfo) {
+    private String addTodo(String commandInfo) throws BuddyException {
         Task task = new Todo(commandInfo);
         this.taskList.addTask(task);
         return Ui.addTask(task, taskList);
@@ -59,16 +69,28 @@ public class Buddy {
         return Ui.addTask(task, taskList);
     }
 
-    private String markTask(String commandInfo) {
-        Task task = this.taskList.getTask(Integer.parseInt(commandInfo) - 1);
-        task.markTaskAsDone();
-        return Ui.markTask(task);
+    private String markTask(String commandInfo) throws BuddyException {
+        try {
+            Task task = this.taskList.getTask(Integer.parseInt(commandInfo) - 1);
+            task.markTaskAsDone();
+            return Ui.markTask(task);
+        } catch (NumberFormatException error) {
+          throw new BuddyInvalidCommandArgumentsException();
+        } catch(IndexOutOfBoundsException error) {
+            throw new BuddyTaskNotFoundException(this.taskList.getLength());
+        }
+
     }
 
-    private String unmarkTask(String commandInfo) {
-        Task task = this.taskList.getTask(Integer.parseInt(commandInfo) - 1);
-        task.unmarkTaskAsDone();
-        return Ui.unmarkTask(task);
+    private String unmarkTask(String commandInfo) throws BuddyException {
+        try {
+            Task task = this.taskList.getTask(Integer.parseInt(commandInfo) - 1);
+            task.unmarkTaskAsDone();
+            return Ui.unmarkTask(task);
+        } catch(IndexOutOfBoundsException error) {
+            throw new BuddyTaskNotFoundException(this.taskList.getLength());
+        }
+
     }
 
     public void exit() {

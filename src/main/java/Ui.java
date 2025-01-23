@@ -1,3 +1,4 @@
+import exception.BuddyException;
 import task.Task;
 import task.TaskList;
 
@@ -55,5 +56,7 @@ public class Ui {
         return result + Ui.BORDER;
     }
 
-
+    public static String showError(BuddyException error) {
+        return Ui.BORDER + "\n" + error.toString() + "\n" + Ui.BORDER  ;
+    }
 }

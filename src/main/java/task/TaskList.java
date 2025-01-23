@@ -1,5 +1,7 @@
 package task;
 
+import exception.BuddyException;
+
 import java.util.ArrayList;
 
 public class TaskList {
