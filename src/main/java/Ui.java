@@ -40,10 +40,15 @@ public class Ui {
     }
 
     public static String addTask(Task task, TaskList taskList) {
-        return Ui.BORDER + String.format("\n  Got it. I've added this task: \n  %s",
-                task.toString()) +
-                String.format("\n  Now you have %s tasks in the list.\n", taskList.getLength())
-                + Ui.BORDER;
+        String res = Ui.BORDER + String.format("\n  Got it. I've added this task: \n  %s",
+                task.toString());
+        if (taskList.getLength() > 1) {
+            res = res + String.format("\n  Now you have %s tasks in the list.\n", taskList.getLength());
+        } else {
+            res = res + String.format("\n  Now you have %s task in the list.\n", taskList.getLength());
+        }
+        res += Ui.BORDER;
+        return res;
     }
 
     public static String listTasks(TaskList taskList) {
@@ -58,5 +63,12 @@ public class Ui {
 
     public static String showError(BuddyException error) {
         return Ui.BORDER + "\n" + error.toString() + "\n" + Ui.BORDER  ;
+    }
+
+    public static String deleteTask(Task task, TaskList taskList) {
+        return Ui.BORDER + String.format("\n  Noted. I've removed this task: \n  %s",
+                task.toString()) +
+                String.format("\n  Now you have %s tasks in the list.\n", taskList.getLength())
+                + Ui.BORDER;
     }
 }

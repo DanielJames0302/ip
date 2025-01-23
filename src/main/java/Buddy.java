@@ -39,6 +39,7 @@ public class Buddy {
                 case EVENT -> this.addEvent(Parser.parseCommandInfo(userInput));
                 case MARK -> this.markTask(Parser.parseCommandInfo(userInput));
                 case UNMARK -> this.unmarkTask(Parser.parseCommandInfo(userInput));
+                case DELETE -> this.deleteTask(Parser.parseCommandInfo(userInput));
                 default -> throw new BuddyInvalidCommandException(userInput);
             };
         } catch(BuddyException error) {
@@ -87,10 +88,27 @@ public class Buddy {
             Task task = this.taskList.getTask(Integer.parseInt(commandInfo) - 1);
             task.unmarkTaskAsDone();
             return Ui.unmarkTask(task);
+        } catch (NumberFormatException error) {
+            throw new BuddyInvalidCommandArgumentsException();
         } catch(IndexOutOfBoundsException error) {
             throw new BuddyTaskNotFoundException(this.taskList.getLength());
         }
+    }
 
+    public String deleteTask(String commandInfo) throws BuddyException {
+        try {
+            int taskId = Integer.parseInt(commandInfo);
+            if (taskId > this.taskList.getLength() || taskId < 0) {
+                throw new BuddyInvalidCommandArgumentsException();
+            }
+            Task taskToDelete = this.taskList.getTask(Integer.parseInt(commandInfo) - 1);
+            this.taskList.deleteTask(taskToDelete);
+            return Ui.deleteTask(taskToDelete, taskList);
+        } catch (NumberFormatException error) {
+            throw new BuddyInvalidCommandArgumentsException();
+        } catch(IndexOutOfBoundsException error) {
+            throw new BuddyTaskNotFoundException(this.taskList.getLength());
+        }
     }
 
     public void exit() {
