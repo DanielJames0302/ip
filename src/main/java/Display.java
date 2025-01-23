@@ -80,7 +80,7 @@ public class Display {
      * @return String response of addTask command.
      */
     public static String addTask(Task task, TaskList taskList) {
-        String res = Display.BORDER + String.format("\n  Got it. I've added this task: \n  %s",
+        String res = Display.BORDER + String.format("\n  Got it. I've added this task:\n  %s",
                 task.toString());
         if (taskList.getLength() > 1) {
             res = res + String.format("\n  Now you have %s tasks in the list.\n", taskList.getLength());
@@ -125,7 +125,7 @@ public class Display {
      * @return String response of deleteTask command.
      */
     public static String deleteTask(Task task, TaskList taskList) {
-        return Display.BORDER + String.format("\n  Noted. I've removed this task: \n  %s",
+        return Display.BORDER + String.format("\n  Noted. I've removed this task:\n  %s",
                 task.toString()) +
                 String.format("\n  Now you have %s tasks in the list.\n", taskList.getLength())
                 + Display.BORDER;
