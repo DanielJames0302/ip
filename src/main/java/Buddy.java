@@ -6,34 +6,52 @@ import task.*;
 
 import java.util.Scanner;
 
+/**
+ * Represents Buddy chatbot
+ *
+ */
 public class Buddy {
     private TaskList taskList;
-    private Ui ui;
+    private Display display;
     private boolean isRunning;
 
+    /**
+     * Constructor for Buddy class.
+     *
+     */
     public Buddy() {
         this.isRunning = true;
         this.taskList = new TaskList();
-        this.ui = new Ui();
+        this.display = new Display();
     }
 
+    /**
+     * Start the Buddy chatbot.
+     *
+     */
     private void start() {
-        System.out.println(Ui.greet());
+        System.out.println(Display.greet());
 
         while(this.isRunning) {
-            String userInput = this.ui.readInput();
+            String userInput = this.display.readInput();
             System.out.println(this.response(userInput));
         }
     }
 
+    /**
+     * Returns string response of the command given by the user.
+     *
+     * @param userInput command given by the user.
+     * @return string response of the command given by the user.
+     */
     private String response(String userInput) {
         try{
             return switch (Parser.parseInput(userInput)) {
                 case BYE -> {
                     this.exit();
-                    yield Ui.bye();
+                    yield Display.bye();
                 }
-                case LIST -> Ui.listTasks(this.taskList);
+                case LIST -> Display.listTasks(this.taskList);
                 case TODO -> this.addTodo(Parser.parseCommandInfo(userInput));
                 case DEADLINE -> this.addDeadline(Parser.parseCommandInfo(userInput));
                 case EVENT -> this.addEvent(Parser.parseCommandInfo(userInput));
@@ -43,7 +61,7 @@ public class Buddy {
                 default -> throw new BuddyInvalidCommandException(userInput);
             };
         } catch(BuddyException error) {
-            return Ui.showError(error);
+            return Display.showError(error);
         }
 
     }
@@ -51,7 +69,7 @@ public class Buddy {
     private String addTodo(String commandInfo) {
         Task task = new Todo(commandInfo);
         this.taskList.addTask(task);
-        return Ui.addTask(task, taskList);
+        return Display.addTask(task, taskList);
     }
 
     private String addDeadline(String commandInfo) throws BuddyException {
@@ -59,7 +77,7 @@ public class Buddy {
             String[] commandArgs = commandInfo.split(" /by ", 2);
             Task task = new Deadline(commandArgs[0], commandArgs[1]);
             this.taskList.addTask(task);
-            return Ui.addTask(task, taskList);
+            return Display.addTask(task, taskList);
         } catch(IndexOutOfBoundsException error) {
             throw new BuddyInvalidCommandArgumentsException();
         }
@@ -73,7 +91,7 @@ public class Buddy {
             String[] time = commandArgs[1].split(" /to ", 2);
             Task task = new Event(description, time[0], time[1]);
             this.taskList.addTask(task);
-            return Ui.addTask(task, taskList);
+            return Display.addTask(task, taskList);
         } catch(IndexOutOfBoundsException error) {
             throw new BuddyInvalidCommandArgumentsException();
         }
@@ -83,7 +101,7 @@ public class Buddy {
         try {
             Task task = this.taskList.getTask(Integer.parseInt(commandInfo) - 1);
             task.markTaskAsDone();
-            return Ui.markTask(task);
+            return Display.markTask(task);
         } catch (NumberFormatException error) {
           throw new BuddyInvalidCommandArgumentsException();
         } catch(IndexOutOfBoundsException error) {
@@ -96,7 +114,7 @@ public class Buddy {
         try {
             Task task = this.taskList.getTask(Integer.parseInt(commandInfo) - 1);
             task.unmarkTaskAsDone();
-            return Ui.unmarkTask(task);
+            return Display.unmarkTask(task);
         } catch (NumberFormatException error) {
             throw new BuddyInvalidCommandArgumentsException();
         } catch(IndexOutOfBoundsException error) {
@@ -112,7 +130,7 @@ public class Buddy {
             }
             Task taskToDelete = this.taskList.getTask(Integer.parseInt(commandInfo) - 1);
             this.taskList.deleteTask(taskToDelete);
-            return Ui.deleteTask(taskToDelete, taskList);
+            return Display.deleteTask(taskToDelete, taskList);
         } catch (NumberFormatException error) {
             throw new BuddyInvalidCommandArgumentsException();
         } catch(IndexOutOfBoundsException error) {
@@ -122,7 +140,7 @@ public class Buddy {
 
     public void exit() {
         this.isRunning = false;
-        this.ui.closeInput();
+        this.display.closeInput();
     }
 
     public static void main(String[] args) {

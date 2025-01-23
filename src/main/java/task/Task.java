@@ -1,5 +1,9 @@
 package task;
 
+/**
+ * Represents Task event
+ *
+ */
 public class Task {
     protected String description;
     protected boolean isDone;

@@ -6,6 +6,10 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.ArrayList;
 
+/**
+ * Represents task list
+ *
+ */
 public class TaskList {
     private ArrayList<Task> tasks;
 

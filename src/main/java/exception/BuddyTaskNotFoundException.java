@@ -6,7 +6,7 @@ public class BuddyTaskNotFoundException extends BuddyException {
     /**
      * Constructor for BuddyTaskNotFoundException.
      *
-     * @param taskListSize current length of the task list.
+     * @param taskListSize Current length of the task list.
      */
     public BuddyTaskNotFoundException(int taskListSize) {
         this.taskListSize = taskListSize;
