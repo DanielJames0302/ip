@@ -3,10 +3,20 @@ package exception;
 public class BuddyMissingCommandInfoException extends BuddyException{
     private final String command;
 
+    /**
+     * Constructor for BuddyMissingCommandInfoException
+     *
+     * @param command invalid command from the user.
+     */
     public BuddyMissingCommandInfoException(String command) {
         this.command = command;
     }
 
+    /**
+     * Retrieve information string of the exception
+     *
+     * @return information string of the exception.
+     */
     @Override
     public String toString() {
         return super.toString()
