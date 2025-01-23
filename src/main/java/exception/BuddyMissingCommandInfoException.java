@@ -6,7 +6,7 @@ public class BuddyMissingCommandInfoException extends BuddyException{
     /**
      * Constructor for BuddyMissingCommandInfoException
      *
-     * @param command invalid command from the user.
+     * @param command the command that don't have description.
      */
     public BuddyMissingCommandInfoException(String command) {
         this.command = command;
