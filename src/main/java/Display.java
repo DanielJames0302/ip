@@ -114,14 +114,14 @@ public class Display {
      * @return String error representation of exception.
      */
     public static String showError(BuddyException error) {
-        return Display.BORDER + "\n" + error.toString() + "\n" + Display.BORDER;
+        return Display.BORDER + "\n " + error.toString() + "\n" + Display.BORDER;
     }
 
     /**
      * Returns string response of deleteTask command.
      *
      * @param task Task that needs deleting
-     * @param taskList the current task list
+     * @param taskList The current task list
      * @return String response of deleteTask command.
      */
     public static String deleteTask(Task task, TaskList taskList) {

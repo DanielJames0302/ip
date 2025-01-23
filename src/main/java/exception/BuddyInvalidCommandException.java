@@ -6,7 +6,7 @@ public class BuddyInvalidCommandException extends BuddyException{
     /**
      * Constructor for BuddyInvalidCommandException.
      *
-     * @param userCommand invalid command from the user.
+     * @param userCommand Invalid command from the user.
      */
     public BuddyInvalidCommandException(String userCommand) {
         this.command = userCommand;

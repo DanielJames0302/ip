@@ -10,16 +10,16 @@ public class Todo extends Task {
     /**
      * Constructor for Todo class.
      *
-     * @param description description of todo task.
+     * @param description Description of todo task.
      */
     public Todo(String description) {
         super(description);
     }
 
     /**
-     * Returns string representation of todo task.
+     * Returns String representation of todo task.
      *
-     * @return string representation of todo task.
+     * @return String representation of todo task.
      */
     @Override
     public String toString() {

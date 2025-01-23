@@ -11,7 +11,7 @@ public class Task {
     /**
      * Constructor for Task class.
      *
-     * @param description description of a task.
+     * @param description Description of a task.
      */
     public Task(String description) {
         this.description = description;
@@ -21,7 +21,7 @@ public class Task {
     /**
      * Returns string representation of the task status.
      *
-     * @return Lateral location.
+     * @return string representation of the task status.
      */
     public String getStatusIcon() {
         return (isDone ? "X" : " "); // mark done task with X
@@ -46,10 +46,9 @@ public class Task {
     /**
      * Returns string representation of a task.
      *
-     * @return string representation of a task.
+     * @return String representation of a task.
      */
     public String toString() {
         return "[" + getStatusIcon() + "] " + this.description;
     }
-
 }

@@ -12,7 +12,7 @@ public class Parser {
      * Returns command type parsed from user input.
      *
      * @param userInput Command given by the user.
-     * @return command type parsed from user input.
+     * @return Command type parsed from user input.
      * @throws BuddyInvalidCommandException If the command is invalid.
      */
     public static Command parseInput(String userInput) throws BuddyException {

@@ -5,7 +5,7 @@ public class BuddyInvalidCommandArgumentsException extends BuddyException{
     /**
      * Retrieve information string of the exception.
      *
-     * @return information string of the exception.
+     * @return information String of the exception.
      */
     @Override
     public String toString() {

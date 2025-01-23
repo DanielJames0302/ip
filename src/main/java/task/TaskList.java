@@ -24,7 +24,7 @@ public class TaskList {
     /**
      * Add new task to current task list.
      *
-     * @param task the new task.
+     * @param task The new task.
      */
     public void addTask(Task task) {
         this.tasks.add(task);
@@ -33,7 +33,7 @@ public class TaskList {
     /**
      * Returns the size of task list.
      *
-     * @return the size of task list.
+     * @return The size of task list.
      */
     public int getLength() {
         return this.tasks.size();
@@ -42,8 +42,8 @@ public class TaskList {
     /**
      * Returns task indicated by index.
      *
-     * @param index task index in the task list.
-     * @return task indicated by index.
+     * @param index Task index in the task list.
+     * @return Task indicated by index.
      */
     public Task getTask(int index) {
         return this.tasks.get(index);
@@ -52,7 +52,7 @@ public class TaskList {
     /**
      * Deletes taskToDelete in the task list
      *
-     * @param taskToDelete task that needs to be deleted.
+     * @param taskToDelete Task that needs to be deleted.
      */
     public void deleteTask(Task taskToDelete) {
         this.tasks = this.tasks.stream()
