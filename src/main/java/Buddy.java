@@ -1,9 +1,9 @@
-import exception.BuddyException;
-import exception.BuddyInvalidCommandArgumentsException;
-import exception.BuddyInvalidCommandException;
-import exception.BuddyTaskNotFoundException;
+import exception.*;
+import storage.DataStorage;
+import storage.DataStorage;
 import task.*;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -14,6 +14,7 @@ public class Buddy {
     private TaskList taskList;
     private Display display;
     private boolean isRunning;
+    private DataStorage dataStorage;
 
     /**
      * Constructor for Buddy class.
@@ -21,8 +22,14 @@ public class Buddy {
      */
     public Buddy() {
         this.isRunning = true;
-        this.taskList = new TaskList();
         this.display = new Display();
+        this.dataStorage = new DataStorage("./data/buddy.txt");
+        try {
+            this.taskList = new TaskList(this.dataStorage.loadData());
+        } catch (BuddyException e) {
+            System.out.println(Display.showError(e));
+            this.taskList = new TaskList();
+        }
     }
 
     /**
@@ -66,10 +73,12 @@ public class Buddy {
 
     }
 
-    private String addTodo(String commandInfo) {
+    private String addTodo(String commandInfo) throws BuddyException{
         Task task = new Todo(commandInfo);
         this.taskList.addTask(task);
+        this.dataStorage.saveTasksToStorage(this.taskList);
         return Display.addTask(task, taskList);
+
     }
 
     private String addDeadline(String commandInfo) throws BuddyException {
@@ -77,6 +86,7 @@ public class Buddy {
             String[] commandArgs = commandInfo.split(" /by ", 2);
             Task task = new Deadline(commandArgs[0], commandArgs[1]);
             this.taskList.addTask(task);
+            this.dataStorage.saveTasksToStorage(this.taskList);
             return Display.addTask(task, taskList);
         } catch(IndexOutOfBoundsException error) {
             throw new BuddyInvalidCommandArgumentsException();
@@ -91,6 +101,7 @@ public class Buddy {
             String[] time = commandArgs[1].split(" /to ", 2);
             Task task = new Event(description, time[0], time[1]);
             this.taskList.addTask(task);
+            this.dataStorage.saveTasksToStorage(this.taskList);
             return Display.addTask(task, taskList);
         } catch(IndexOutOfBoundsException error) {
             throw new BuddyInvalidCommandArgumentsException();
@@ -101,6 +112,7 @@ public class Buddy {
         try {
             Task task = this.taskList.getTask(Integer.parseInt(commandInfo) - 1);
             task.markTaskAsDone();
+            this.dataStorage.saveTasksToStorage(this.taskList);
             return Display.markTask(task);
         } catch (NumberFormatException error) {
           throw new BuddyInvalidCommandArgumentsException();
@@ -114,6 +126,7 @@ public class Buddy {
         try {
             Task task = this.taskList.getTask(Integer.parseInt(commandInfo) - 1);
             task.unmarkTaskAsDone();
+            this.dataStorage.saveTasksToStorage(this.taskList);
             return Display.unmarkTask(task);
         } catch (NumberFormatException error) {
             throw new BuddyInvalidCommandArgumentsException();
@@ -130,6 +143,7 @@ public class Buddy {
             }
             Task taskToDelete = this.taskList.getTask(Integer.parseInt(commandInfo) - 1);
             this.taskList.deleteTask(taskToDelete);
+            this.dataStorage.saveTasksToStorage(this.taskList);
             return Display.deleteTask(taskToDelete, taskList);
         } catch (NumberFormatException error) {
             throw new BuddyInvalidCommandArgumentsException();

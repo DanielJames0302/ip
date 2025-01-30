@@ -103,7 +103,6 @@ public class Display {
             result = result + String.format("  %s.%s\n", i + 1,
                     taskList.getTask(i).toString());
         }
-
         return result + Display.BORDER;
     }
 

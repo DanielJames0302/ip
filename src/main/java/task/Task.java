@@ -4,7 +4,7 @@ package task;
  * Represents Task event
  *
  */
-public class Task {
+public abstract class Task {
     protected String description;
     protected boolean isDone;
 
@@ -42,6 +42,8 @@ public class Task {
     public void unmarkTaskAsDone() {
         this.isDone = false;
     }
+
+    public abstract String toStorageStringFormat();
 
     /**
      * Returns string representation of a task.
