@@ -1,7 +1,12 @@
 package buddy.exception;
 
 public class BuddyDataStorageException extends BuddyException {
-    
+
+    /**
+     * Constructor for BuddyDataStorageException.
+     *
+     * @param message message string for exception.
+     */
     public BuddyDataStorageException(String message) {
         super(message);
     }
