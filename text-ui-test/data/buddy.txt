@@ -1,0 +1,4 @@
+T | 1 | borrow book
+D | 0 | return book | 2020-02-02 0100
+E | 0 | friend meeting | 2024-02-02 1400 | 2024-02-02 1400
+T | 0 | graduation day

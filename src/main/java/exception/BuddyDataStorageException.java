@@ -1,14 +1,13 @@
 package exception;
 
 public class BuddyDataStorageException extends BuddyException {
-    private String messageString;
 
-    public BuddyDataStorageException(String messageString) {
-        this.messageString = messageString;
+    public BuddyDataStorageException(String message) {
+        super(message);
     }
 
     @Override
     public String toString() {
-        return super.toString() + " " + this.messageString;
+        return super.toString() + " " + this.message;
     }
 }

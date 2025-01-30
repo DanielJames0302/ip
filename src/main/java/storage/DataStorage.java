@@ -1,5 +1,6 @@
 package storage;
 
+import command.Command;
 import exception.BuddyDataStorageException;
 import exception.BuddyException;
 import task.*;
@@ -44,11 +45,11 @@ public class DataStorage {
                     yield setTaskDone(Integer.parseInt(data[1]), task);
                 }
                 case "D" -> {
-                    task = new Deadline(data[2], data[3]);
+                    task = new Deadline(data[2], Command.getDateAndTime(data[3]));
                     yield setTaskDone(Integer.parseInt(data[1]), task);
                 }
                 case "E" -> {
-                    task = new Event(data[2], data[3], data[4]);
+                    task = new Event(data[2], Command.getDateAndTime(data[3]), Command.getDateAndTime(data[4]));
                     yield setTaskDone(Integer.parseInt(data[1]), task);
                 }
                 default -> throw new BuddyDataStorageException("Invalid entry in data");
