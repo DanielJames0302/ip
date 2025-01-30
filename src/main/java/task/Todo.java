@@ -16,6 +16,11 @@ public class Todo extends Task {
         super(description);
     }
 
+    /**
+     * Returns String representation of todo task in storage.
+     *
+     * @return String representation of todo task in storage.
+     */
     @Override
     public String toStorageStringFormat() {
         String result = "T | ";
