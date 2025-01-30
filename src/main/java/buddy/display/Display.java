@@ -140,6 +140,6 @@ public class Display {
         for (int i = 0; i < filteredTaskList.getLength(); i++) {
             result.append(String.format("\t%d. %s\n", counter++, filteredTaskList.getTask(i).toString()));
         }
-        return "Here are the matching tasks in your list:\n" + result + Display.BORDER;
+        return "Here are the matching results in your list:\n" + result + Display.BORDER;
     }
 }
