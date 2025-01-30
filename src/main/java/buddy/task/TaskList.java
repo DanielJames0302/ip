@@ -64,4 +64,19 @@ public class TaskList {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
+    public TaskList filter(String keyword) {
+        if (this.tasks == null) {
+            throw new IllegalStateException("Task list is null");
+        }
+        if (keyword == null) {
+            throw new IllegalArgumentException("Keyword cannot be null");
+        }
+
+        ArrayList<Task> filteredTasks = this.tasks.stream()
+                .filter(t -> t.getDescription() != null && t.getDescription().contains(keyword))
+                .collect(Collectors.toCollection(ArrayList::new));
+
+        return new TaskList(filteredTasks);
+    }
+
 }

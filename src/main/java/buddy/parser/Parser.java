@@ -31,7 +31,7 @@ public class Parser {
             case LIST:
                 return new ListTasksCommand();
             case TODO:
-                args.add(commandArgs[0]);
+                args.add(commandArgs[1]);
                 return new AddTodoCommand(args);
             case DEADLINE:
                 String byTime = commandArgs[1].split(" /by ")[1];
@@ -47,14 +47,17 @@ public class Parser {
                 args.add(toTime);
                 return new AddEventCommand(args);
             case MARK:
-                args.add(commandArgs[0]);
+                args.add(commandArgs[1]);
                 return new MarkCommand(args);
             case UNMARK:
-                args.add(commandArgs[0]);
+                args.add(commandArgs[1]);
                 return new UnmarkCommand(args);
             case DELETE:
-                args.add(commandArgs[0]);
+                args.add(commandArgs[1]);
                 return new DeleteCommand(args);
+            case FIND:
+                args.add(commandArgs[1]);
+                return new FindCommand(args);
             default:
                 throw new BuddyInvalidCommandException(userInput);
             }

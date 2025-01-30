@@ -132,4 +132,14 @@ public class Display {
                 String.format("\n  Now you have %s tasks in the list.\n", taskList.getLength())
                 + Display.BORDER;
     }
+
+    public static String filterTask(TaskList filteredTaskList) {
+        StringBuilder result = new StringBuilder();
+        result.append(Display.BORDER + "\n");
+        int counter = 1;
+        for (int i = 0; i < filteredTaskList.getLength(); i++) {
+            result.append(String.format("\t%d. %s\n", counter++, filteredTaskList.getTask(i).toString()));
+        }
+        return "Here are the matching tasks in your list:\n" + result + Display.BORDER;
+    }
 }

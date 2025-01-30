@@ -6,5 +6,6 @@ package buddy.command;
  */
 public enum CommandType {
     TODO, DEADLINE, EVENT, BYE,
-    LIST, MARK, UNMARK, DELETE
+    LIST, MARK, UNMARK, DELETE,
+    FIND
 }
