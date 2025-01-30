@@ -1,8 +1,9 @@
-todo borrow book
-deadline return book /by Sunday
-event project meeting /from Mon 2pm /to 4pm
 list
-event friend meeting /from Mon 5pm /to 6pm
+todo borrow book
+deadline return book /by 2020-02-02 0100
+event project meeting /from 2024-02-02 1400 /to 2024-02-02 1500
+list
+event friend meeting /from 2024-02-02 1400 /to 2024-02-02 1400
 mark 1
 mark 3
 list
@@ -13,5 +14,4 @@ list
 todo graduation day
 todo
 kaka
-deadline return book /by
 bye

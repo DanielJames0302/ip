@@ -1,8 +1,10 @@
+package command;
+
 /**
  * Represents possible command types for Buddy chatbot
  *
  */
-public enum Command {
+public enum CommandType {
     TODO, DEADLINE, EVENT, BYE,
     LIST, MARK, UNMARK, DELETE
 }

@@ -2,6 +2,11 @@ package exception;
 
 public class BuddyInvalidCommandArgumentsException extends BuddyException{
 
+    public BuddyInvalidCommandArgumentsException(String message) {
+        super(message);
+    }
+
+
     /**
      * Retrieve information string of the exception.
      *
@@ -9,6 +14,6 @@ public class BuddyInvalidCommandArgumentsException extends BuddyException{
      */
     @Override
     public String toString() {
-        return super.toString() + " It seems like you entered an invalid arguments";
+        return super.toString() + this.message;
     }
 }

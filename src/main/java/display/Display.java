@@ -1,3 +1,5 @@
+package display;
+
 import exception.BuddyException;
 import task.Task;
 import task.TaskList;
@@ -46,7 +48,7 @@ public class Display {
     public static String bye() {
         return String.format(Display.BORDER + "\n" +
                 " Bye. Hope to see you again soon!\n" +
-                  Display.BORDER);
+                Display.BORDER);
     }
 
 

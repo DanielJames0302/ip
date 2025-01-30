@@ -1,5 +1,8 @@
 package task;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 /**
  * Represents Task event
  *
@@ -7,7 +10,8 @@ package task;
 public abstract class Task {
     protected String description;
     protected boolean isDone;
-
+    public final static DateTimeFormatter storePattern = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
+    public final static DateTimeFormatter writePattern = DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm a");
     /**
      * Constructor for Task class.
      *
