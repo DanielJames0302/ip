@@ -21,6 +21,15 @@ public class Event extends Task{
         this.to = to;
     }
 
+    @Override
+    public String toStorageStringFormat() {
+        String result = "E | ";
+        result += this.isDone ? "1" : "0";
+        result += " | " + this.description + " | ";
+        result = result +  this.from + " | " + this.to + "\n";
+        return result;
+    }
+
     /**
      * Returns string representation of Event task.
      *

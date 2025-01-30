@@ -16,6 +16,14 @@ public class Todo extends Task {
         super(description);
     }
 
+    @Override
+    public String toStorageStringFormat() {
+        String result = "T | ";
+        result += this.isDone ? "1" : "0";
+        result += " | " + this.description + "\n";
+        return result;
+    }
+
     /**
      * Returns String representation of todo task.
      *

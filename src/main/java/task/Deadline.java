@@ -18,6 +18,15 @@ public class Deadline extends Task {
         this.by = by;
     }
 
+    @Override
+    public String toStorageStringFormat() {
+        String result = "D | ";
+        result += this.isDone ? "1" : "0";
+        result += " | " + this.description + " | ";
+        result += this.by + "\n";
+        return result;
+    }
+
     /**
      * Retrieve string representation of deadline task.
      *
