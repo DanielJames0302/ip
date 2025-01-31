@@ -19,6 +19,10 @@ public abstract class Command {
     protected boolean isExit = false;
     private final static DateTimeFormatter storeDateTimePattern = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
+    /**
+     * Constructor for Command class
+     *
+     */
     public Command() {}
 
     public Command(ArrayList<String> args) {
