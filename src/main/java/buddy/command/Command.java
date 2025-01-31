@@ -25,6 +25,11 @@ public abstract class Command {
      */
     public Command() {}
 
+    /**
+     * Constructor for Command class
+     *
+     * @param args Arguments from user command
+     */
     public Command(ArrayList<String> args) {
         this.args = args;
     }
