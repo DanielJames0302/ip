@@ -12,6 +12,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Represents data storage on hard disk
+ *
+ */
 public class DataStorage {
     private String filePath;
 
