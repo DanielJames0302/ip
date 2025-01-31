@@ -10,6 +10,10 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
+/**
+ * Represents Command from the user
+ *
+ */
 public abstract class Command {
     protected ArrayList<String> args;
     protected boolean isExit = false;
