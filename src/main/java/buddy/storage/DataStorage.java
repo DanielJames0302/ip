@@ -19,6 +19,11 @@ import java.util.Scanner;
 public class DataStorage {
     private String filePath;
 
+    /**
+     * Constructor for Data Storage
+     *
+     * @param filePath File path on hard disk
+     */
     public DataStorage(String filePath) {
         this.filePath = filePath;
     }
