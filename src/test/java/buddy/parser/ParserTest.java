@@ -1,10 +1,11 @@
 package buddy.parser;
 
-import buddy.exception.BuddyException;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
+import buddy.exception.BuddyException;
 
 public class ParserTest {
 

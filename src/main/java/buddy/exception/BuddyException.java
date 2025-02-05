@@ -1,5 +1,8 @@
 package buddy.exception;
 
+/**
+ * Represents the type Buddy exception.
+ */
 public abstract class BuddyException extends Exception {
     protected String message = "";
 
@@ -7,7 +10,8 @@ public abstract class BuddyException extends Exception {
         this.message = message;
     }
 
-    public BuddyException() {}
+    public BuddyException() {
+    }
 
     /**
      * Retrieve information string of the exception.

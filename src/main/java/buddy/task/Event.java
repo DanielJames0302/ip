@@ -1,16 +1,11 @@
 package buddy.task;
 
-import buddy.command.Command;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 /**
  * Represents Event type
- *
  */
-public class Event extends Task{
+public class Event extends Task {
     protected LocalDateTime from;
     protected LocalDateTime to;
 
@@ -18,8 +13,8 @@ public class Event extends Task{
      * Constructor for Event class.
      *
      * @param description Description of the Event task.
-     * @param from  Start time of the Event task.
-     * @param to End time of the Event task.
+     * @param from        Start time of the Event task.
+     * @param to          End time of the Event task.
      */
     public Event(String description, LocalDateTime from, LocalDateTime to) {
         super(description);
@@ -32,7 +27,7 @@ public class Event extends Task{
         String result = "E | ";
         result += this.isDone ? "1" : "0";
         result += " | " + this.description + " | ";
-        result = result +  this.from.format(Task.storePattern) + " | " + this.to.format(Task.storePattern) + "\n";
+        result = result + this.from.format(Task.PATTERN_STORE) + " | " + this.to.format(Task.PATTERN_STORE) + "\n";
         return result;
     }
 
@@ -43,7 +38,7 @@ public class Event extends Task{
      */
     @Override
     public String toString() {
-        return "[E]" + super.toString() +
-                String.format(" (from: %s to: %s)", from.format(Task.writePattern), to.format(Task.writePattern));
+        return "[E]" + super.toString()
+                + String.format(" (from: %s to: %s)", from.format(Task.PATTERN_WRITE), to.format(Task.PATTERN_WRITE));
     }
 }

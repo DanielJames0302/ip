@@ -1,6 +1,9 @@
 package buddy.exception;
 
-public class BuddyInvalidCommandException extends BuddyException{
+/**
+ * Represents the type Buddy invalid command exception.
+ */
+public class BuddyInvalidCommandException extends BuddyException {
     private final String command;
 
     /**

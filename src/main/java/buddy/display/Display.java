@@ -1,15 +1,13 @@
 package buddy.display;
 
+import java.util.Scanner;
+
 import buddy.exception.BuddyException;
 import buddy.task.Task;
 import buddy.task.TaskList;
-import buddy.task.TaskList;
-
-import java.util.Scanner;
 
 /**
  * Represent Display function for chatbot
- *
  */
 public class Display {
     private static final String BORDER = "____________________________________________________________";
@@ -18,40 +16,21 @@ public class Display {
 
     /**
      * Returns string representation of greeting response.
-     *
      */
     public static String greet() {
-        return String.format(Display.BORDER + "\n" +
-                "Hello! I'm Buddy\n" + "What can I do for you?\n" +
-                Display.BORDER);
-    }
-
-    /**
-     * Returns the next input in the newline.
-     *
-     */
-    public String readInput() {
-        return this.scanner.nextLine();
-    }
-
-    /**
-     * Closes the scanner.
-     *
-     */
-    public void closeInput() {
-        this.scanner.close();
+        return String.format(Display.BORDER + "\n"
+                + "Hello! I'm Buddy\n" + "What can I do for you?\n"
+                + Display.BORDER);
     }
 
     /**
      * Returns string representation of bye response.
-     *
      */
     public static String bye() {
-        return String.format(Display.BORDER + "\n" +
-                " Bye. Hope to see you again soon!\n" +
-                Display.BORDER);
+        return String.format(Display.BORDER + "\n"
+                + " Bye. Hope to see you again soon!\n"
+                + Display.BORDER);
     }
-
 
     /**
      * Returns string response of markTask command.
@@ -78,7 +57,7 @@ public class Display {
     /**
      * Returns string response of addTask command.
      *
-     * @param task Task that needs marking as done.
+     * @param task     Task that needs marking as done.
      * @param taskList The current task list.
      * @return String response of addTask command.
      */
@@ -122,17 +101,23 @@ public class Display {
     /**
      * Returns string response of deleteTask command.
      *
-     * @param task Task that needs deleting
+     * @param task     Task that needs deleting
      * @param taskList The current task list
      * @return String response of deleteTask command.
      */
     public static String deleteTask(Task task, TaskList taskList) {
         return Display.BORDER + String.format("\n  Noted. I've removed this task:\n  %s",
-                task.toString()) +
-                String.format("\n  Now you have %s tasks in the list.\n", taskList.getLength())
+                task.toString())
+                + String.format("\n  Now you have %s tasks in the list.\n", taskList.getLength())
                 + Display.BORDER;
     }
 
+    /**
+     * Returns string response of filter command.
+     *
+     * @param filteredTaskList the filtered task list
+     * @return String response of filter command
+     */
     public static String filterTask(TaskList filteredTaskList) {
         StringBuilder result = new StringBuilder();
         result.append(Display.BORDER + "\n");
@@ -141,5 +126,19 @@ public class Display {
             result.append(String.format("\t%d. %s\n", counter++, filteredTaskList.getTask(i).toString()));
         }
         return "Here are the matching results in your list:\n" + result + Display.BORDER;
+    }
+
+    /**
+     * Returns the next input in the newline.
+     */
+    public String readInput() {
+        return this.scanner.nextLine();
+    }
+
+    /**
+     * Closes the scanner.
+     */
+    public void closeInput() {
+        this.scanner.close();
     }
 }

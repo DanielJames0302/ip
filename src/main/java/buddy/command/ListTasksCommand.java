@@ -5,6 +5,9 @@ import buddy.exception.BuddyException;
 import buddy.storage.DataStorage;
 import buddy.task.TaskList;
 
+/**
+ * Represents the type List tasks command.
+ */
 public class ListTasksCommand extends Command {
 
     @Override

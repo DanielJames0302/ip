@@ -1,6 +1,9 @@
 package buddy.exception;
 
-public class BuddyMissingCommandInfoException extends BuddyException{
+/**
+ * Represents the type Buddy missing command info exception.
+ */
+public class BuddyMissingCommandInfoException extends BuddyException {
     private final String command;
 
     /**
@@ -20,7 +23,7 @@ public class BuddyMissingCommandInfoException extends BuddyException{
     @Override
     public String toString() {
         return super.toString()
-                + String.format(" You forgot to put in the " +
-                "description of the command \"%s\"", command);
+                + String.format(" You forgot to put in the "
+                + "description of the command \"%s\"", command);
     }
 }

@@ -1,5 +1,8 @@
 package buddy.exception;
 
+/**
+ * Represents the type Buddy task not found exception.
+ */
 public class BuddyTaskNotFoundException extends BuddyException {
     private final int taskListSize;
 
@@ -19,8 +22,8 @@ public class BuddyTaskNotFoundException extends BuddyException {
      */
     @Override
     public String toString() {
-        return super.toString() +
-                String.format(" Your task id is invalid since the " +
-                        "current length of task list is %s", this.taskListSize);
+        return super.toString()
+                + String.format(" Your task id is invalid since the "
+                + "current length of task list is %s", this.taskListSize);
     }
 }

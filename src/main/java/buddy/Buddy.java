@@ -2,10 +2,11 @@ package buddy;
 
 import buddy.command.Command;
 import buddy.display.Display;
+import buddy.exception.BuddyException;
 import buddy.parser.Parser;
 import buddy.storage.DataStorage;
 import buddy.task.TaskList;
-import buddy.exception.BuddyException;
+
 
 /**
  * Represents Buddy chatbot
@@ -40,7 +41,7 @@ public class Buddy {
     private void start() {
         System.out.println(Display.greet());
         boolean isBye = false;
-        while(!isBye) {
+        while (!isBye) {
             String userInput = this.display.readInput();
             try {
                 Command command = Parser.parseCommand(userInput);

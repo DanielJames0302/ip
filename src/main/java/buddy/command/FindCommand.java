@@ -1,21 +1,27 @@
 package buddy.command;
 
-import buddy.display.Display;
-import buddy.exception.BuddyException;
-import buddy.exception.BuddyInvalidCommandArgumentsException;
-import buddy.exception.BuddyTaskNotFoundException;
-import buddy.storage.DataStorage;
-import buddy.task.Task;
-import buddy.task.TaskList;
-
 import java.util.ArrayList;
 
+import buddy.display.Display;
+import buddy.exception.BuddyException;
+import buddy.storage.DataStorage;
+import buddy.task.TaskList;
+
+/**
+ * Represents the type Find command.
+ */
 public class FindCommand extends Command {
 
+    /**
+     * Instantiates a new Find command.
+     *
+     * @param args the args from the user
+     */
     public FindCommand(ArrayList<String> args) {
         super(args);
     }
 
+    @Override
     public String execute(TaskList taskList, DataStorage dataStorage) throws BuddyException {
         if (taskList.getLength() == 0) {
             return "You have no task in your list.\n";

@@ -1,16 +1,14 @@
 package buddy.task;
 
-import buddy.exception.BuddyException;
-import buddy.exception.BuddyInvalidCommandArgumentsException;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+import buddy.exception.BuddyException;
+import buddy.exception.BuddyInvalidCommandArgumentsException;
+
 /**
  * Represents Deadline event
- *
  */
 public class Deadline extends Task {
     protected LocalDateTime by;
@@ -19,7 +17,7 @@ public class Deadline extends Task {
      * Constructor for Deadline class.
      *
      * @param description Deadline task description.
-     * @param dueDate String representation of the deadline.
+     * @param dueDate     String representation of the deadline.
      */
     public Deadline(String description, LocalDateTime dueDate) throws BuddyException {
         super(description);
@@ -48,6 +46,8 @@ public class Deadline extends Task {
      */
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " (by: " + by.format(DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm a")) + ")";
+        return "[D]" + super.toString() + " (by: "
+                + by.format(DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm a"))
+                + ")";
     }
 }
