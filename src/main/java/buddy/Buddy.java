@@ -10,7 +10,6 @@ import buddy.task.TaskList;
 
 /**
  * Represents Buddy chatbot
- *
  */
 public class Buddy {
     private TaskList taskList;
@@ -20,7 +19,6 @@ public class Buddy {
 
     /**
      * Constructor for Buddy class.
-     *
      */
     public Buddy() {
         this.isRunning = true;
@@ -34,9 +32,24 @@ public class Buddy {
         }
     }
 
+    public static void main(String[] args) {
+        new Buddy().start();
+    }
+
+    /**
+     * @param input
+     */
+    public String getResponse(String input) {
+        try {
+            Command command = Parser.parseCommand(input);
+            return command.execute(taskList, dataStorage);
+        } catch (BuddyException error) {
+            return Display.showError(error);
+        }
+    }
+
     /**
      * Start the Buddy chatbot.
-     *
      */
     private void start() {
         System.out.println(Display.greet());
@@ -52,10 +65,5 @@ public class Buddy {
             }
         }
         this.display.closeInput();
-    }
-
-
-    public static void main(String[] args) {
-        new Buddy().start();
     }
 }
