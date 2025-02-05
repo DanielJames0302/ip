@@ -22,7 +22,7 @@ public class TaskTest {
     public void markTaskAsDone_shouldReturnXForStatus() {
         Task task = new Todo("Test");
         task.markTaskAsDone();
-        Assertions.assertEquals("X",task.getStatusIcon());
+        Assertions.assertEquals("X", task.getStatusIcon());
     }
 
 

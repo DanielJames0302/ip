@@ -1,17 +1,16 @@
 package buddy.task;
 
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
  * Represents Task event
- *
  */
 public abstract class Task {
+    public static final DateTimeFormatter PATTERN_STORE = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
+    public static final DateTimeFormatter PATTERN_WRITE = DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm a");
     protected String description;
     protected boolean isDone;
-    public final static DateTimeFormatter storePattern = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
-    public final static DateTimeFormatter writePattern = DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm a");
+
     /**
      * Constructor for Task class.
      *
@@ -33,7 +32,6 @@ public abstract class Task {
 
     /**
      * Mark the task as done.
-     *
      */
     public void markTaskAsDone() {
         this.isDone = true;
@@ -41,7 +39,6 @@ public abstract class Task {
 
     /**
      * Mark the task as not done.
-     *
      */
     public void unmarkTaskAsDone() {
         this.isDone = false;

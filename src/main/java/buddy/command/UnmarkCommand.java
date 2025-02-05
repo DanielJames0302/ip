@@ -1,5 +1,7 @@
 package buddy.command;
 
+import java.util.ArrayList;
+
 import buddy.display.Display;
 import buddy.exception.BuddyException;
 import buddy.exception.BuddyInvalidCommandArgumentsException;
@@ -8,10 +10,16 @@ import buddy.storage.DataStorage;
 import buddy.task.Task;
 import buddy.task.TaskList;
 
-import java.util.ArrayList;
-
+/**
+ * Represents the type Unmark command.
+ */
 public class UnmarkCommand extends Command {
 
+    /**
+     * Instantiates a new Unmark command.
+     *
+     * @param args the args from user
+     */
     public UnmarkCommand(ArrayList<String> args) {
         super(args);
     }
@@ -25,7 +33,7 @@ public class UnmarkCommand extends Command {
             return Display.unmarkTask(task);
         } catch (NumberFormatException error) {
             throw new BuddyInvalidCommandArgumentsException("Your task id needs to be a number");
-        } catch(IndexOutOfBoundsException error) {
+        } catch (IndexOutOfBoundsException error) {
             throw new BuddyTaskNotFoundException(taskList.getLength());
         }
     }

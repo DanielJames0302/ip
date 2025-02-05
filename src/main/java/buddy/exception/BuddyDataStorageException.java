@@ -1,5 +1,8 @@
 package buddy.exception;
 
+/**
+ * Represents the type Buddy data storage exception.
+ */
 public class BuddyDataStorageException extends BuddyException {
 
     /**

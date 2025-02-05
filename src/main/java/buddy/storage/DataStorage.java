@@ -1,10 +1,5 @@
 package buddy.storage;
 
-import buddy.command.Command;
-import buddy.exception.BuddyDataStorageException;
-import buddy.exception.BuddyException;
-import buddy.task.*;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -12,9 +7,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import buddy.command.Command;
+import buddy.exception.BuddyDataStorageException;
+import buddy.exception.BuddyException;
+import buddy.task.Deadline;
+import buddy.task.Event;
+import buddy.task.Task;
+import buddy.task.TaskList;
+import buddy.task.Todo;
+
 /**
  * Represents data storage on hard disk
- *
  */
 public class DataStorage {
     private String filePath;
@@ -28,6 +31,12 @@ public class DataStorage {
         this.filePath = filePath;
     }
 
+    /**
+     * Load data array list.
+     *
+     * @return the array list
+     * @throws BuddyException the buddy exception
+     */
     public ArrayList<Task> loadData() throws BuddyException {
         File file = new File(filePath);
         ArrayList<Task> taskList = new ArrayList<>();
@@ -87,6 +96,12 @@ public class DataStorage {
         }
     }
 
+    /**
+     * Save tasks to storage.
+     *
+     * @param taskList the task list
+     * @throws BuddyException the buddy exception
+     */
     public void saveTasksToStorage(TaskList taskList) throws BuddyException {
         writeToFile("", false);
         for (int i = 0; i < taskList.getLength(); i += 1) {
@@ -94,12 +109,19 @@ public class DataStorage {
         }
     }
 
+    /**
+     * Write to file.
+     *
+     * @param entryLine  the entry line
+     * @param isAppended the is appended
+     * @throws BuddyException the buddy exception
+     */
     public void writeToFile(String entryLine, boolean isAppended) throws BuddyException {
         try {
             FileWriter fw = new FileWriter(this.filePath, isAppended);
             fw.write(entryLine);
             fw.close();
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new BuddyDataStorageException("Cannot write tasks to file");
         }
     }

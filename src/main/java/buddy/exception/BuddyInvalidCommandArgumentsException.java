@@ -1,7 +1,15 @@
 package buddy.exception;
 
-public class BuddyInvalidCommandArgumentsException extends BuddyException{
+/**
+ * Represents the type Buddy invalid command arguments exception.
+ */
+public class BuddyInvalidCommandArgumentsException extends BuddyException {
 
+    /**
+     * Instantiates a new Buddy invalid command arguments exception.
+     *
+     * @param message the message
+     */
     public BuddyInvalidCommandArgumentsException(String message) {
         super(message);
     }

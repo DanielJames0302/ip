@@ -1,26 +1,27 @@
 package buddy.task;
 
-import buddy.exception.BuddyException;
-
-import java.util.stream.Collectors;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  * Represents task list
- *
  */
 public class TaskList {
     private ArrayList<Task> tasks;
 
     /**
      * Constructor for TaskList class.
-     *
      */
     public TaskList() {
         this.tasks = new ArrayList<>();
     }
 
 
+    /**
+     * Instantiates a new Task list.
+     *
+     * @param tasks the tasks
+     */
     public TaskList(ArrayList<Task> tasks) {
         this.tasks = tasks;
     }
@@ -60,10 +61,16 @@ public class TaskList {
      */
     public void deleteTask(Task taskToDelete) {
         this.tasks = this.tasks.stream()
-                .filter(task -> !task.equals(taskToDelete) )
+                .filter(task -> !task.equals(taskToDelete))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
+    /**
+     * Filter task list.
+     *
+     * @param keyword the keyword
+     * @return the task list
+     */
     public TaskList filter(String keyword) {
         if (this.tasks == null) {
             throw new IllegalStateException("Task list is null");

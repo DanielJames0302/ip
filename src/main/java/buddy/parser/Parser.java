@@ -1,15 +1,24 @@
 package buddy.parser;
 
-import buddy.command.*;
+import java.util.ArrayList;
+
+import buddy.command.AddDeadlineCommand;
+import buddy.command.AddEventCommand;
+import buddy.command.AddTodoCommand;
+import buddy.command.ByeCommand;
+import buddy.command.Command;
+import buddy.command.CommandType;
+import buddy.command.DeleteCommand;
+import buddy.command.FindCommand;
+import buddy.command.ListTasksCommand;
+import buddy.command.MarkCommand;
+import buddy.command.UnmarkCommand;
 import buddy.exception.BuddyException;
 import buddy.exception.BuddyInvalidCommandException;
 import buddy.exception.BuddyMissingCommandInfoException;
 
-import java.util.ArrayList;
-
 /**
  * Represent a parser for the input command
- *
  */
 public class Parser {
 
