@@ -3,8 +3,8 @@ package buddy.exception;
 /**
  * Represents the type Buddy exception.
  */
-public abstract class BuddyException extends Exception {
-    protected String message = "";
+public class BuddyException extends Exception {
+    protected String message;
 
     public BuddyException(String message) {
         this.message = message;
@@ -20,6 +20,6 @@ public abstract class BuddyException extends Exception {
      */
     @Override
     public String toString() {
-        return "Attention !!";
+        return "Attention !! ";
     }
 }

@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
  */
 public abstract class Task {
     public static final DateTimeFormatter PATTERN_STORE = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
-    public static final DateTimeFormatter PATTERN_WRITE = DateTimeFormatter.ofPattern("MMM dd yyyy HH:mm a");
+    public static final DateTimeFormatter PATTERN_WRITE = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm a");
     protected String description;
     protected boolean isDone;
 
