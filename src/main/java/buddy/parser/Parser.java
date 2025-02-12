@@ -51,7 +51,7 @@ public class Parser {
                 String fromToTime = commandArgs[1].split(" /from ")[1];
                 String fromTime = fromToTime.split(" /to ")[0];
                 String toTime = fromToTime.split(" /to ")[1];
-                args.add(commandArgs[1].split(" /by ")[0]);
+                args.add(commandArgs[1].split(" /from ")[0]);
                 args.add(fromTime);
                 args.add(toTime);
                 return new AddEventCommand(args);

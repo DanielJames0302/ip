@@ -50,6 +50,10 @@ public abstract class Command {
                 Integer.parseInt(time.substring(2, 4)));
     }
 
+    public ArrayList<String> getArgs() {
+        return this.args;
+    }
+
     /**
      * Gets exit status.
      *

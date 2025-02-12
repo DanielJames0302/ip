@@ -1,11 +1,13 @@
 package buddy.command;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 import buddy.display.Display;
 import buddy.exception.BuddyException;
 import buddy.exception.BuddyInvalidCommandArgumentsException;
+import buddy.exception.BuddyInvalidDateFormatException;
 import buddy.storage.DataStorage;
 import buddy.task.Event;
 import buddy.task.Task;
@@ -36,7 +38,10 @@ public class AddEventCommand extends Command {
             return Display.addTask(task, taskList);
         } catch (IndexOutOfBoundsException error) {
             throw new BuddyInvalidCommandArgumentsException("Please enter event command in the"
-                    + "following format \\`event [description] /from [dd/mm/yyyy HHmm] /to [dd/mm/yyyy HHmm]\\`");
+                    + "following format \n `event [description] /from [yyyy-MM-dd HHmm] /to [yyyy-MM-dd HHmm]");
+        } catch (DateTimeParseException e) {
+            throw new BuddyInvalidDateFormatException("Please enter the date format of event command as follows: \n"
+                    + "yyyy-MM-dd (e.g 2000-02-02)");
         }
     }
 }

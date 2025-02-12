@@ -6,6 +6,7 @@ import buddy.Buddy;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -21,10 +22,19 @@ public class Main extends Application {
         try {
             stage.setMinHeight(220);
             stage.setMinWidth(417);
+
+            stage.setTitle("Buddy chatbot");
+
+            Image appIcon = new Image(Main.class.getResourceAsStream("/images/doremon.png"));
+            stage.getIcons().add(appIcon);
+
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/view/MainWindow.fxml"));
             AnchorPane ap = fxmlLoader.load();
+
             Scene scene = new Scene(ap);
             stage.setScene(scene);
+
+            fxmlLoader.<MainWindow>getController().sendGreetMessage();
             fxmlLoader.<MainWindow>getController().setDuke(buddy);
             stage.show();
         } catch (IOException e) {
