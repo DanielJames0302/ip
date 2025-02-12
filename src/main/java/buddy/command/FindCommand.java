@@ -32,7 +32,6 @@ public class FindCommand extends Command {
         if (filteredList.getLength() == 0) {
             return "No tasks found based on your keyword.\n";
         }
-
         return Display.filterTask(filteredList);
     }
 }
