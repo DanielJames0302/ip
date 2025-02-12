@@ -14,14 +14,12 @@ import buddy.task.TaskList;
 public class Buddy {
     private TaskList taskList;
     private Display display;
-    private boolean isRunning;
     private DataStorage dataStorage;
 
     /**
      * Constructor for Buddy class.
      */
     public Buddy() {
-        this.isRunning = true;
         this.display = new Display();
         this.dataStorage = new DataStorage("./data/buddy.txt");
         try {
@@ -53,6 +51,7 @@ public class Buddy {
      */
     private void start() {
         System.out.println(Display.greet());
+        System.out.print("hehe");
         boolean isBye = false;
         while (!isBye) {
             String userInput = this.display.readInput();

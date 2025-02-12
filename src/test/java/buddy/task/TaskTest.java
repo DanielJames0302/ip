@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 /**
  * <h1>TaskTest Class</h1>
  * Test for the Task class.
- *
- * @author Eng Xuan En
  */
 public class TaskTest {
 

@@ -23,7 +23,7 @@ public class BuddyMissingCommandInfoException extends BuddyException {
     @Override
     public String toString() {
         return super.toString()
-                + String.format(" You forgot to put in the "
-                + "description of the command \"%s\"", command);
+                + String.format("Are you sure you have put all the information"
+                + " in this command:\n%s", command);
     }
 }

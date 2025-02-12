@@ -1,11 +1,13 @@
 package buddy.command;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 import buddy.display.Display;
 import buddy.exception.BuddyException;
 import buddy.exception.BuddyInvalidCommandArgumentsException;
+import buddy.exception.BuddyInvalidDateFormatException;
 import buddy.storage.DataStorage;
 import buddy.task.Deadline;
 import buddy.task.Task;
@@ -28,6 +30,7 @@ public class AddDeadlineCommand extends Command {
     @Override
     public String execute(TaskList taskList, DataStorage dataStorage) throws BuddyException {
         try {
+            assert args.size() >= 2 : "Raw input for Deadline should be 2 arguments after spliting";
             LocalDateTime by = getDateAndTime(args.get(1));
             Task task = new Deadline(args.get(0), by);
             taskList.addTask(task);
@@ -37,7 +40,10 @@ public class AddDeadlineCommand extends Command {
             return Display.addTask(task, taskList);
         } catch (IndexOutOfBoundsException error) {
             throw new BuddyInvalidCommandArgumentsException("Please enter deadline command in the"
-                    + "following format \\`deadline [description] /by [dd/mm/yyyy HHmm]\\`");
+                    + "following format \n deadline [description] /by [yyyy-MM-dd HHmm]");
+        } catch (DateTimeParseException e) {
+            throw new BuddyInvalidDateFormatException("Please enter the date format of deadline command as follows: \n"
+                    + "yyyy-MM-dd (e.g 2000-02-02)");
         }
     }
 }

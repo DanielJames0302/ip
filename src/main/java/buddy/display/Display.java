@@ -10,7 +10,7 @@ import buddy.task.TaskList;
  * Represent Display function for chatbot
  */
 public class Display {
-    private static final String BORDER = "____________________________________________________________";
+    private static final String BORDER = "_________________________________________";
     private final Scanner scanner = new Scanner(System.in);
 
 
@@ -80,10 +80,14 @@ public class Display {
      * @return String response of listTasks command.
      */
     public static String listTasks(TaskList taskList) {
-        String result = Display.BORDER + "\n  Here are the tasks in your list:\n";
+        if (taskList.getLength() == 0) {
+            return "You don't have any tasks in the list at the moment";
+        }
+        StringBuilder result = new StringBuilder();
+        result.append(Display.BORDER + "\n  Here are the tasks in your list:\n");
         for (int i = 0; i < taskList.getLength(); i += 1) {
-            result = result + String.format("  %s.%s\n", i + 1,
-                    taskList.getTask(i).toString());
+            result.append(String.format("  %s.%s\n", i + 1,
+                    taskList.getTask(i).toString()));
         }
         return result + Display.BORDER;
     }
