@@ -32,6 +32,8 @@ public class AddDeadlineCommand extends Command {
             Task task = new Deadline(args.get(0), by);
             taskList.addTask(task);
             dataStorage.saveTasksToStorage(taskList);
+            
+            assert taskList.getTask(taskList.getLength()).equals(task) : "Task is not added into taskList";
             return Display.addTask(task, taskList);
         } catch (IndexOutOfBoundsException error) {
             throw new BuddyInvalidCommandArgumentsException("Please enter deadline command in the"
