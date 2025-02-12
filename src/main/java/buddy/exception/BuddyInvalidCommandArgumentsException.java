@@ -14,7 +14,6 @@ public class BuddyInvalidCommandArgumentsException extends BuddyException {
         super(message);
     }
 
-
     /**
      * Retrieve information string of the exception.
      *

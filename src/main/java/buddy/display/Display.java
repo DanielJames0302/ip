@@ -13,7 +13,6 @@ public class Display {
     private static final String BORDER = "_________________________________________";
     private final Scanner scanner = new Scanner(System.in);
 
-
     /**
      * Returns string representation of greeting response.
      */

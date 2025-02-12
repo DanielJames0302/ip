@@ -25,6 +25,4 @@ public class BuddyInvalidCommandException extends BuddyException {
         return super.toString()
                 + String.format(" Your command \"%s\" seems strange to me", this.command);
     }
-
-
 }

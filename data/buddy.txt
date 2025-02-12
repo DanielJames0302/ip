@@ -1,2 +1,10 @@
+<<<<<<< HEAD
+T | 1 | todo
+T | 0 | kaka 
+T | 0 | haha
+D | 0 | return book | 2020-02-02 0100
+D | 0 | return book | 2020-02-02 0100
+D | 0 | return book | 2020-02-02 0100
+D | 0 | return book | 2020-02-02 0100
 T | 0 | hi
 D | 0 | coco | 2000-02-02 1000
