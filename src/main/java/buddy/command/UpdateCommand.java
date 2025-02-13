@@ -11,6 +11,9 @@ import buddy.storage.DataStorage;
 import buddy.task.Task;
 import buddy.task.TaskList;
 
+/**
+ * Represents the type Update command.
+ */
 public class UpdateCommand extends Command {
 
     /**
