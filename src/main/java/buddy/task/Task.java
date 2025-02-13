@@ -2,6 +2,8 @@ package buddy.task;
 
 import java.time.format.DateTimeFormatter;
 
+import buddy.exception.BuddyException;
+
 /**
  * Represents Task event
  */
@@ -48,7 +50,18 @@ public abstract class Task {
         return description;
     }
 
+    /**
+     * To storage string format string.
+     *
+     * @return the string
+     */
     public abstract String toStorageStringFormat();
+
+
+    /**
+     * Update task.
+     */
+    public abstract void updateTask(String field, String newValue) throws BuddyException;
 
     /**
      * Returns string representation of a task.

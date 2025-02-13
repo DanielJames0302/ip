@@ -13,6 +13,7 @@ import buddy.command.FindCommand;
 import buddy.command.ListTasksCommand;
 import buddy.command.MarkCommand;
 import buddy.command.UnmarkCommand;
+import buddy.command.UpdateCommand;
 import buddy.exception.BuddyException;
 import buddy.exception.BuddyInvalidCommandException;
 import buddy.exception.BuddyMissingCommandInfoException;
@@ -67,6 +68,15 @@ public class Parser {
             case FIND:
                 args.add(commandArgs[1]);
                 return new FindCommand(args);
+            case UPDATE:
+                String taskId = commandArgs[1].split(" ", 2)[0];
+                String updateInfo = commandArgs[1].split(" ", 2)[1];
+                String field = updateInfo.split(" ", 2)[0];
+                String newInfo = updateInfo.split(" ", 2)[1];
+                args.add(taskId);
+                args.add(field);
+                args.add(newInfo);
+                return new UpdateCommand(args);
             default:
                 throw new BuddyInvalidCommandException(userInput);
             }

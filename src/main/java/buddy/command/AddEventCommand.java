@@ -42,7 +42,7 @@ public class AddEventCommand extends Command {
                     + "following format \n `event [description] /from [yyyy-MM-dd HHmm] /to [yyyy-MM-dd HHmm]");
         } catch (DateTimeParseException e) {
             throw new BuddyInvalidDateFormatException("Please enter the date format of event command as follows: \n"
-                    + "yyyy-MM-dd (e.g 2000-02-02)");
+                    + "yyyy-MM-dd HHmm (e.g 2000-02-02 1400)");
         }
     }
 }

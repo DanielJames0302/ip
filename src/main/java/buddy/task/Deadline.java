@@ -3,6 +3,9 @@ package buddy.task;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import buddy.command.Command;
+import buddy.exception.BuddyException;
+
 /**
  * Represents Deadline event
  */
@@ -27,6 +30,15 @@ public class Deadline extends Task {
         result += " | " + this.description + " | ";
         result += this.by.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm")) + "\n";
         return result;
+    }
+
+    @Override
+    public void updateTask(String field, String newValue) throws BuddyException {
+        switch (field) {
+        case "/by" -> this.by = Command.getDateAndTime(newValue);
+        case "/description" -> this.description = newValue;
+        default -> throw new BuddyException("Invalid update field for Event! Use '/by', '/description'.");
+        }
     }
 
     /**

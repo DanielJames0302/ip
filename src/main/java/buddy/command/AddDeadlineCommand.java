@@ -35,7 +35,7 @@ public class AddDeadlineCommand extends Command {
             Task task = new Deadline(args.get(0), by);
             taskList.addTask(task);
             dataStorage.saveTasksToStorage(taskList);
-            
+
             assert taskList.getTask(taskList.getLength()).equals(task) : "Task is not added into taskList";
             return Display.addTask(task, taskList);
         } catch (IndexOutOfBoundsException error) {
@@ -43,7 +43,7 @@ public class AddDeadlineCommand extends Command {
                     + "following format \n deadline [description] /by [yyyy-MM-dd HHmm]");
         } catch (DateTimeParseException e) {
             throw new BuddyInvalidDateFormatException("Please enter the date format of deadline command as follows: \n"
-                    + "yyyy-MM-dd (e.g 2000-02-02)");
+                    + "yyyy-MM-dd HHmm (e.g 2000-02-02 1400)");
         }
     }
 }

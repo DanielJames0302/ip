@@ -2,6 +2,9 @@ package buddy.task;
 
 import java.time.LocalDateTime;
 
+import buddy.command.Command;
+import buddy.exception.BuddyException;
+
 /**
  * Represents Event type
  */
@@ -29,6 +32,16 @@ public class Event extends Task {
         result += " | " + this.description + " | ";
         result = result + this.from.format(Task.PATTERN_STORE) + " | " + this.to.format(Task.PATTERN_STORE) + "\n";
         return result;
+    }
+
+    @Override
+    public void updateTask(String field, String newValue) throws BuddyException {
+        switch (field) {
+        case "/from" -> this.from = Command.getDateAndTime(newValue);
+        case "/to" -> this.to = Command.getDateAndTime(newValue);
+        case "/description" -> this.description = newValue;
+        default -> throw new BuddyException("Invalid update field for Event! Use '/from', '/to', '/description'.");
+        }
     }
 
     /**

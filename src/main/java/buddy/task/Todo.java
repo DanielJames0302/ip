@@ -1,8 +1,10 @@
 package buddy.task;
 
+import buddy.exception.BuddyException;
+import buddy.exception.BuddyInvalidCommandException;
+
 /**
  * Represents Todo event
- *
  */
 public class Todo extends Task {
     protected String by;
@@ -27,6 +29,16 @@ public class Todo extends Task {
         result += this.isDone ? "1" : "0";
         result += " | " + this.description + "\n";
         return result;
+    }
+
+    @Override
+    public void updateTask(String field, String newValue) throws BuddyException {
+        if (field.equals("/description")) {
+            this.description = newValue;
+        } else {
+            throw new BuddyInvalidCommandException("To edit todo task, it should be in this format:\n"
+                    + "update taskId /description newDescription");
+        }
     }
 
     /**
