@@ -13,6 +13,11 @@ import buddy.task.TaskList;
 
 public class UpdateCommand extends Command {
 
+    /**
+     * Instantiates a new Update command.
+     *
+     * @param args the args
+     */
     public UpdateCommand(ArrayList<String> args) {
         super(args);
     }
