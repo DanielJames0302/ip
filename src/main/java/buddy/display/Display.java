@@ -131,6 +131,12 @@ public class Display {
         return "Here are the matching results in your list:\n" + result + Display.BORDER;
     }
 
+    /**
+     * Update task string.
+     *
+     * @param task the task
+     * @return the string
+     */
     public static String updateTask(Task task) {
         return Display.BORDER + String.format("\n  Noted. I've edited this task:\n  %s\n",
                 task.toString())
