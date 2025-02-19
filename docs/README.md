@@ -6,7 +6,7 @@ Buddy chatbot is for those who are *interested in using a desktop app for keepin
 importantly, Buddy is
 *optimized for those who prefer to work with a Command Line Interface* (CLI) while still having the benefits of a
 Graphical User Interface (GUI). If you can type fast, Buddy can help scheduling tasks done faster than
-traditional GUI apps. Curious? Jump to the <<Quick Start>> to get started.
+traditional GUI apps. Curious? Jump to the **Quick Start** to get started.
 
 ## Quick Start
 
@@ -24,7 +24,7 @@ traditional GUI apps. Curious? Jump to the <<Quick Start>> to get started.
 
 ## Features
 
-*Command Format*
+**Command Format**
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `TASK_TYPE NAME_OF_TASK`,
   `TASK_TYPE, NAME_OF_TASK` are parameters which
@@ -35,8 +35,8 @@ traditional GUI apps. Curious? Jump to the <<Quick Start>> to get started.
 
 ### Adding a todo task: `todo`
 
-- Adds a todo task to the task list
-- Format: `todo TASK_NAME`
+- **Purpose**: Adds a todo task to the task list
+- **Format**: `todo TASK_NAME`
 
 Examples:
 
@@ -45,19 +45,19 @@ Examples:
 
 ### Adding a deadline task: `deadline`
 
-- Adds a deadline task to the task list
-- Format: `deadline TASK_NAME /by DUE_DATE`
+- **Purpose**: Adds a deadline task to the task list
+- **Format**: `deadline TASK_NAME /by DUE_DATE`
 - `DUE_DATE` should follow this format `yyyy-MM-dd HHmm HHmm` (e.g. `2025-02-02 1600`)
 
 Examples:
 
 * `deadline presentation /by 2025-12-02 1000`
 
-### Adding a event task: `event`
+### Adding an event task: `event`
 
-- Adds a deadline task to the task list
-- Format: `event TASK_NAME /from START_DATE /to END_DATE`
-- `START_DATE` and `END_DATE` should follow this format `yyyy-MM-dd HHmm HHmm` (e.g. `2025-02-02 1600`)
+- **Purpose**: Adds an event task to the task list
+- **Format**: `event TASK_NAME /from START_DATE /to END_DATE`
+- `START_DATE` and `END_DATE` should follow this format `yyyy-MM-dd HHmm` (e.g. `2025-02-02 1600`)
 
 Examples:
 
@@ -65,13 +65,13 @@ Examples:
 
 ### Listing all tasks in the list: `list`
 
-- Shows a list of all tasks in the current list.
-- Format: `list`
+- **Purpose**: Shows a list of all tasks in the current list.
+- **Format**: `list`
 
 ### Editing a person : `update`
 
-Edits an existing tasks in the current list. +
-Format: `update INDEX /FIELD_TO_UPDATE NEW_INFO`
+- **Purpose**: Edits an existing tasks in the current list.
+- **Format**: `update INDEX /FIELD_TO_UPDATE NEW_INFO`
 
 - Updates the task at the specified `INDEX`. The index refers to the index number shown in the displayed task list. The
   index *must be a positive integer* 1, 2, 3,..
@@ -80,15 +80,15 @@ Format: `update INDEX /FIELD_TO_UPDATE NEW_INFO`
 
 Examples:
 
-- `update 1 /description go to gym`
+- `update 1 /description go to gym` \
   Edits the task description the 1st task of type Todo to be `go to gym`.
-- `update 2 /by 2025-03-15 1400`
+- `update 2 /by 2025-03-15 1400`\
   Edits the due date of the 2nd task of type Deadline to be `2025-03-15 1400`.
 
 ### Locating persons by name: `find`
 
-- Finds persons whose names contain any of the given keywords.
-- Format: `find KEYWORD`
+- **Purpose**: Finds persons whose names contain any of the given keywords.
+- **Format**: `find KEYWORD`
 
 
 - The search is not case insensitive. e.g `homework` won't match `Homework`
@@ -97,13 +97,13 @@ Examples:
 
 Examples:
 
-- `find homework`
+- `find homework`\
   Returns `1. [T][] homework`
 
 ### Deleting a person : `delete`
 
-- Deletes the specified task from the current list.
-- Format: `delete INDEX`
+- **Purpose**: Deletes the specified task from the current list.
+- **Format**: `delete INDEX`
 
 
 - Deletes the task at the specified `INDEX`.
@@ -113,13 +113,13 @@ Examples:
 Examples:
 
 - `list` +
-  `delete 3` +
+  `delete 3` \
   Deletes the 3rd task in the current list.
 
 ### Exiting the program : `bye`
 
-- Exits the program.
-- Format: `bye`
+- **Purpose**: Exits the program.
+- **Format**: `bye`
 
 ### Saving the data
 
@@ -128,21 +128,22 @@ There is no need to save manually.
 
 ## Command Summary
 
-* *Todo* `todo TASK_NAME` +
-  e.g. `todo borrow books`
-* *Deadline* `deadline TASK_NAME /by DUE_DATE` +
+* **Todo** `todo TASK_NAME`<br> e.g. `todo borrow books`
+* **Deadline** `deadline TASK_NAME /by DUE_DATE` <br>
   e.g. `deadline presentation /by 2025-12-02 1000`
-* *Event* `event TASK_NAME /from START_DATE /to END_DATE` +
+* **Event** `event TASK_NAME /from START_DATE /to END_DATE` <br>
   e.g. `event friend meeting /from 2024-02-02 1400 /to 2024-02-02 1400`
-* *Delete* : `delete INDEX` +
-  e.g. `delete 3`
-* *Mark* : `mark INDEX` +
-  e.g. `mark 1`
-* *Unmark* : `unmark INDEX` +
+* **Delete** : `delete INDEX` <br> e.g. `delete 3`
+* **Mark** : `mark INDEX` <br> e.g. `mark 1`
+* **Unmark** : `unmark INDEX` <br>
   e.g. `unmark 2`
-* *Update* : `update INDEX /FIELD_TO_UPDATE NEW_INFO`  +
+* **Update** : `update INDEX /FIELD_TO_UPDATE NEW_INFO` <br>
   e.g. `update /description play game`
-* *Find* : `find KEYWORD` +
+* **Find** : `find KEYWORD` <br>
   e.g. `find homework`
-* *List* : `list`
-* *Bye* : `bye`
+* **List** : `list`
+* **Bye** : `bye`
+
+
+
+
