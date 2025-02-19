@@ -26,8 +26,7 @@ public class FindCommand extends Command {
         if (taskList.getLength() == 0) {
             return "You have no task in your list.\n";
         }
-
-        System.out.println(args.get(0));
+        
         TaskList filteredList = taskList.filter(args.get(0));
         if (filteredList.getLength() == 0) {
             return "No tasks found based on your keyword.\n";

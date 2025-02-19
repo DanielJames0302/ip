@@ -19,11 +19,11 @@ class DisplayTest {
     private Task task3;
 
     @BeforeEach
-    void setUp() {
+    void setup() {
         taskList = new TaskList();
-        task1 = new Todo("Buy milk");
-        task2 = new Deadline("Submit assignment", LocalDateTime.of(2024, 2, 15, 23, 59));
-        task3 = new Todo("Go to gym");
+        task1 = new Todo("Buy books");
+        task2 = new Deadline("Submit cs assignment", LocalDateTime.of(2024, 2, 15, 23, 59));
+        task3 = new Todo("Go to supermarket");
 
         taskList.addTask(task1);
         taskList.addTask(task2);
@@ -52,7 +52,7 @@ class DisplayTest {
         task1.markTaskAsDone();
         String expected = "_________________________________________\n"
                 + " Nice! I've marked this task as done:\n"
-                + " [T][X] Buy milk\n"
+                + " [T][X] Buy books\n"
                 + "_________________________________________";
         assertEquals(expected, Display.markTask(task1));
     }
@@ -63,7 +63,7 @@ class DisplayTest {
         task2.unmarkTaskAsDone();
         String expected = "_________________________________________\n"
                 + " OK, I've marked this task as not done yet:\n"
-                + " [D][ ] Submit assignment (by: Feb 15 2024 11:59 PM)\n"
+                + " [D][ ] Submit cs assignment (by: Feb 15 2024 11:59 PM)\n"
                 + "_________________________________________";
         assertEquals(expected, Display.unmarkTask(task2));
     }

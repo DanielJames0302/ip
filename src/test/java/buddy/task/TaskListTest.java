@@ -16,12 +16,12 @@ class TaskListTest {
     private Task task3;
 
     @BeforeEach
-    void setUp() {
+    void setup() {
         taskList = new TaskList();
-        task1 = new Todo("Buy milk");
-        task2 = new Deadline("Submit assignment",
+        task1 = new Todo("Buy books");
+        task2 = new Deadline("Submit cs assignment",
                 java.time.LocalDateTime.of(2024, 2, 15, 23, 59));
-        task3 = new Event("Team meeting",
+        task3 = new Event("Team discussion",
                 java.time.LocalDateTime.of(2024, 2, 20, 10, 0),
                 java.time.LocalDateTime.of(2024, 2, 20, 12, 0));
 
@@ -64,7 +64,7 @@ class TaskListTest {
 
     @Test
     void getTask_outOfBounds_throwsException() {
-        assertThrows(IndexOutOfBoundsException.class, () -> taskList.getTask(10));
+        assertThrows(AssertionError.class, () -> taskList.getTask(10));
     }
 
     @Test
@@ -76,7 +76,7 @@ class TaskListTest {
     }
 
     @Test
-    void deleteTask_nonExistentTask_noChange() {
+    void deleteTask_nonExistentTask_listNoChange() {
         Task nonExistentTask = new Todo("Some random task");
         taskList.deleteTask(nonExistentTask);
 
@@ -85,7 +85,7 @@ class TaskListTest {
 
     @Test
     void filter_keywordExists_returnsFilteredList() {
-        TaskList filteredList = taskList.filter("milk");
+        TaskList filteredList = taskList.filter("books");
 
         assertEquals(1, filteredList.getLength());
         assertEquals(task1, filteredList.getTask(0));
@@ -93,7 +93,7 @@ class TaskListTest {
 
     @Test
     void filter_caseSensitive_noMatch() {
-        TaskList filteredList = taskList.filter("Milk"); // Case-sensitive
+        TaskList filteredList = taskList.filter("Books"); // Case-sensitive
 
         assertEquals(0, filteredList.getLength());
     }
@@ -114,6 +114,6 @@ class TaskListTest {
 
     @Test
     void filter_nullKeyword_throwsException() {
-        assertThrows(IllegalArgumentException.class, () -> taskList.filter(null));
+        assertThrows(AssertionError.class, () -> taskList.filter(null));
     }
 }

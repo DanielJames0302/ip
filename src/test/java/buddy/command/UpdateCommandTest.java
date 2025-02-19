@@ -22,11 +22,9 @@ public class UpdateCommandTest {
 
     @BeforeEach
     public void setUp() {
-        // Initialize task list and mock storage
         taskList = new TaskList();
-        dataStorage = new DataStorage("test.json"); // Assuming storage is mocked or replaced
+        dataStorage = new DataStorage("test.json");
 
-        // Add sample tasks
         taskList.addTask(new Deadline("Submit report", java.time.LocalDateTime.of(2024, 2, 15, 23, 59)));
         taskList.addTask(new Event("Project presentation",
                 java.time.LocalDateTime.of(2024, 2, 15, 23, 59), java.time.LocalDateTime.of(2024, 2, 18, 23, 59)));

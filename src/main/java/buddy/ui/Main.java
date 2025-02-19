@@ -35,7 +35,7 @@ public class Main extends Application {
             stage.setScene(scene);
 
             fxmlLoader.<MainWindow>getController().sendGreetMessage();
-            fxmlLoader.<MainWindow>getController().setDuke(buddy);
+            fxmlLoader.<MainWindow>getController().setBuddy(buddy);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

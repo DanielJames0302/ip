@@ -35,7 +35,10 @@ public class Buddy {
     }
 
     /**
-     * @param input
+     * Gets response from executing command.
+     *
+     * @param input the input
+     * @return the command response
      */
     public String getResponse(String input) {
         try {
@@ -47,11 +50,9 @@ public class Buddy {
     }
 
     /**
-     * Start the Buddy chatbot.
+     * Starts the Buddy chatbot.
      */
     private void start() {
-        System.out.println(Display.greet());
-        System.out.print("hehe");
         boolean isBye = false;
         while (!isBye) {
             String userInput = this.display.readInput();

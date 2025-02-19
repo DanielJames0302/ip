@@ -32,7 +32,7 @@ public class DataStorage {
     }
 
     /**
-     * Load data array list.
+     * Loads data array list.
      *
      * @return the array list
      * @throws BuddyException the buddy exception

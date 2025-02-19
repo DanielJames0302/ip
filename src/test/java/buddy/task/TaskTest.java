@@ -3,21 +3,17 @@ package buddy.task;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-/**
- * <h1>TaskTest Class</h1>
- * Test for the Task class.
- */
 public class TaskTest {
 
     @Test
-    public void initialiseShouldReturnEmptyStringForStatus() {
+    public void initialiseReturnEmptyStringForStatus() {
         Task task = new Todo("Test");
         Assertions.assertEquals(" ", task.getStatusIcon());
     }
 
 
     @Test
-    public void markTaskAsDone_shouldReturnXForStatus() {
+    public void markTaskAsDone_returnXForStatus() {
         Task task = new Todo("Test");
         task.markTaskAsDone();
         Assertions.assertEquals("X", task.getStatusIcon());
@@ -25,7 +21,7 @@ public class TaskTest {
 
 
     @Test
-    public void toString_shouldGiveCorrectFormat() {
+    public void toString_returnCorrectFormat() {
         Task task = new Todo("Test");
         String expected = "[T][ ] Test";
         Assertions.assertEquals(expected, task.toString());
