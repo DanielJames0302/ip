@@ -17,10 +17,10 @@ traditional GUI apps. Curious? Jump to the <<Quick Start>> to get started.
 
 - Some example commands you can try:
 
-* *`list`* : lists all tasks in the list
+* `list` : lists all tasks in the list
 * **`todo`**`submit assignment` : adds a Todo task called submit assignment to the task list
 * **`delete`**`1` : deletes the 1st task shown in the current list
-* *`bye`* : closes the app
+* `bye` : closes the app
 
 ## Features
 
