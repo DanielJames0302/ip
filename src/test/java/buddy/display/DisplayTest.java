@@ -18,6 +18,9 @@ class DisplayTest {
     private Task task2;
     private Task task3;
 
+    /**
+     * Sets up before each test.
+     */
     @BeforeEach
     void setup() {
         taskList = new TaskList();
@@ -30,6 +33,9 @@ class DisplayTest {
         taskList.addTask(task3);
     }
 
+    /**
+     * Greet returns correct message.
+     */
     @Test
     void greet_returnsCorrectMessage() {
         String expected = "_________________________________________\n"
@@ -39,6 +45,9 @@ class DisplayTest {
         assertEquals(expected, Display.greet());
     }
 
+    /**
+     * Bye returns correct message.
+     */
     @Test
     void bye_returnsCorrectMessage() {
         String expected = "_________________________________________\n"
@@ -47,6 +56,9 @@ class DisplayTest {
         assertEquals(expected, Display.bye());
     }
 
+    /**
+     * Mark task returns correct message.
+     */
     @Test
     void markTask_returnsCorrectMessage() {
         task1.markTaskAsDone();
@@ -57,6 +69,9 @@ class DisplayTest {
         assertEquals(expected, Display.markTask(task1));
     }
 
+    /**
+     * Unmark task returns correct message.
+     */
     @Test
     void unmarkTask_returnsCorrectMessage() {
         task2.markTaskAsDone();

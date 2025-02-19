@@ -61,7 +61,6 @@ public class UpdateCommandTest {
         UpdateCommand command = new UpdateCommand(args);
         assertDoesNotThrow(() -> {
             String result = command.execute(taskList, dataStorage);
-            System.out.print(result);
             assertTrue(result.contains("Project presentation"));
             assertTrue(result.contains("Mar 10 2025 03:00 PM"));
         });

@@ -1,3 +1,6 @@
 D | 1 | travel | 2025-02-19 1600
 E | 0 | project meeting | 2024-02-02 1400 | 2024-02-02 1500
 T | 0 | finish homework
+D | 0 |   hihi | 2005-12-02 1200
+T | 0 | hihi
+D | 0 | kaka mimi | 2000-02-02 1800

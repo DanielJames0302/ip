@@ -31,6 +31,8 @@ public class Parser {
      * @throws BuddyInvalidCommandException If the command is invalid.
      */
     public static Command parseCommand(String userInput) throws BuddyException {
+        userInput = userInput.trim().replaceAll("\\s+", " ");
+
         String command = userInput.split(" ")[0];
         String[] commandArgs = userInput.split(" ", 2);
         ArrayList<String> args = new ArrayList<>();
