@@ -38,8 +38,8 @@ public class AddEventCommand extends Command {
             return Display.addTask(task, taskList);
         } catch (IndexOutOfBoundsException error) {
             throw new BuddyInvalidCommandArgumentsException("Please enter event command in the"
-                    + "following format \n `event [description] /from [yyyy-MM-dd HHmm] /to [yyyy-MM-dd HHmm]");
-        } catch (DateTimeParseException e) {
+                    + " following format \n `event [description] /from [yyyy-MM-dd HHmm] /to [yyyy-MM-dd HHmm]");
+        } catch (DateTimeParseException | NumberFormatException e) {
             throw new BuddyInvalidDateFormatException("Please enter the date format of event command as follows: \n"
                     + "yyyy-MM-dd HHmm (e.g 2000-02-02 1400)");
         }

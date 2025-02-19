@@ -26,10 +26,6 @@ public class DeleteCommand extends Command {
     public String execute(TaskList taskList, DataStorage dataStorage) throws BuddyException {
         try {
             int taskId = Integer.parseInt(args.get(0));
-            if (taskId > taskList.getLength() || taskId < 0) {
-                throw new BuddyInvalidCommandArgumentsException(String.format("Your task id should be in the range"
-                        + "0 - %s", taskList.getLength()));
-            }
             Task taskToDelete = taskList.getTask(Integer.parseInt(args.get(0)) - 1);
             taskList.deleteTask(taskToDelete);
             dataStorage.saveTasksToStorage(taskList);

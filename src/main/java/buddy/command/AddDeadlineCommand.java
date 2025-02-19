@@ -37,8 +37,8 @@ public class AddDeadlineCommand extends Command {
             return Display.addTask(task, taskList);
         } catch (IndexOutOfBoundsException error) {
             throw new BuddyInvalidCommandArgumentsException("Please enter deadline command in the"
-                    + "following format \n deadline [description] /by [yyyy-MM-dd HHmm]");
-        } catch (DateTimeParseException e) {
+                    + " following format \n deadline [description] /by [yyyy-MM-dd HHmm]");
+        } catch (DateTimeParseException | NumberFormatException e) {
             throw new BuddyInvalidDateFormatException("Please enter the date format of deadline command as follows: \n"
                     + "yyyy-MM-dd HHmm (e.g 2000-02-02 1400)");
         }

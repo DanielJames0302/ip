@@ -24,7 +24,7 @@ public class BuddyMissingCommandInfoException extends BuddyException {
      */
     @Override
     public String toString() {
-        return super.toString() + String.format("Make sure your %s follows this format:\n %s",
+        return super.toString() + String.format("Make sure your %s command follows this format:\n %s",
                 this.command, CommandType.valueOf(command.toUpperCase()));
     }
 }
