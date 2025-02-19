@@ -14,7 +14,6 @@ public class TaskList {
      */
     public TaskList() {
         this.tasks = new ArrayList<>();
-        assert this.tasks != null : "Task list should be initialized";
     }
 
     /**
@@ -23,7 +22,6 @@ public class TaskList {
      * @param tasks the tasks
      */
     public TaskList(ArrayList<Task> tasks) {
-        assert tasks != null : "Task list parameter should not be null";
         this.tasks = tasks;
     }
 
@@ -33,9 +31,7 @@ public class TaskList {
      * @param task The new task.
      */
     public void addTask(Task task) {
-        assert task != null : "Cannot add a null task";
         int oldSize = this.tasks.size();
-
         this.tasks.add(task);
 
         assert this.tasks.size() == oldSize + 1 : "Task list size should increase by 1 after adding a task";
@@ -47,7 +43,6 @@ public class TaskList {
      * @return The size of task list.
      */
     public int getLength() {
-        assert this.tasks != null : "Task list should not be null when getting length";
         return this.tasks.size();
     }
 
@@ -58,7 +53,6 @@ public class TaskList {
      * @return Task indicated by index.
      */
     public Task getTask(int index) {
-        assert index >= 0 && index < this.tasks.size() : "Index out of bounds in getTask()";
         return this.tasks.get(index);
     }
 
@@ -68,7 +62,6 @@ public class TaskList {
      * @param taskToDelete Task that needs to be deleted.
      */
     public void deleteTask(Task taskToDelete) {
-        assert taskToDelete != null : "Cannot delete a null task";
         int oldSize = this.tasks.size();
 
         this.tasks = this.tasks.stream()
@@ -85,9 +78,6 @@ public class TaskList {
      * @return the task list
      */
     public TaskList filter(String keyword) {
-        assert this.tasks != null : "Task list should not be null before filtering";
-        assert keyword != null : "Keyword should not be null";
-
         ArrayList<Task> filteredTasks = this.tasks.stream()
                 .filter(t -> t.getDescription() != null && t.getDescription().contains(keyword))
                 .collect(Collectors.toCollection(ArrayList::new));

@@ -30,7 +30,6 @@ public class AddEventCommand extends Command {
     @Override
     public String execute(TaskList taskList, DataStorage dataStorage) throws BuddyException {
         try {
-            assert args.size() >= 2 : "Raw input for Event should be 2 arguments after spliting";
             LocalDateTime from = Command.getDateAndTime(args.get(1));
             LocalDateTime to = Command.getDateAndTime(args.get(2));
             Task task = new Event(args.get(0), from, to);

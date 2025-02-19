@@ -1,5 +1,7 @@
 package buddy.exception;
 
+import buddy.command.CommandType;
+
 /**
  * Represents the type Buddy missing command info exception.
  */
@@ -22,8 +24,7 @@ public class BuddyMissingCommandInfoException extends BuddyException {
      */
     @Override
     public String toString() {
-        return super.toString()
-                + String.format("Are you sure you have put all the information"
-                + " in this command:\n%s", command);
+        return super.toString() + String.format("Make sure your %s follows this format:\n %s",
+                this.command, CommandType.valueOf(command.toUpperCase()));
     }
 }

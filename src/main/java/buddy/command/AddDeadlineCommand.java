@@ -30,7 +30,6 @@ public class AddDeadlineCommand extends Command {
     @Override
     public String execute(TaskList taskList, DataStorage dataStorage) throws BuddyException {
         try {
-            assert args.size() >= 2 : "Raw input for Deadline should be 2 arguments after spliting";
             LocalDateTime by = getDateAndTime(args.get(1));
             Task task = new Deadline(args.get(0), by);
             taskList.addTask(task);

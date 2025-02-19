@@ -85,7 +85,7 @@ public class Parser {
         } catch (IllegalArgumentException e) {
             throw new BuddyInvalidCommandException(userInput);
         } catch (ArrayIndexOutOfBoundsException e) {
-            throw new BuddyMissingCommandInfoException(userInput);
+            throw new BuddyMissingCommandInfoException(command);
         }
     }
 }

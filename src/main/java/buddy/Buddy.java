@@ -43,7 +43,9 @@ public class Buddy {
     public String getResponse(String input) {
         try {
             Command command = Parser.parseCommand(input);
-            return command.execute(taskList, dataStorage);
+            String response = command.execute(taskList, dataStorage);
+            assert response != null : "Response should not be empty";
+            return response;
         } catch (BuddyException error) {
             return Display.showError(error);
         }
