@@ -20,8 +20,8 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            stage.setMinHeight(220);
-            stage.setMinWidth(417);
+            stage.setMinHeight(320);
+            stage.setMinWidth(700);
 
             stage.setTitle("Buddy chatbot");
 
