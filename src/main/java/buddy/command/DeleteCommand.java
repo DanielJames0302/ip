@@ -9,7 +9,7 @@ import buddy.task.Task;
 import buddy.task.TaskList;
 
 /**
- * The type Delete command.
+ * Represents the type Delete command.
  */
 public class DeleteCommand extends Command {
 

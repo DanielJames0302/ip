@@ -15,7 +15,7 @@ public class BuddyDataStorageException extends BuddyException {
     }
 
     /**
-     * Retrieve information string of the exception.
+     * Retrieves information string of the exception.
      *
      * @return information string of the exception.
      */

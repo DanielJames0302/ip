@@ -26,7 +26,7 @@ public class TaskList {
     }
 
     /**
-     * Add new task to current task list.
+     * Adds new task to current task list.
      *
      * @param task The new task.
      */
@@ -72,10 +72,10 @@ public class TaskList {
     }
 
     /**
-     * Filter task list.
+     * Filters task list.
      *
      * @param keyword the keyword
-     * @return the task list
+     * @return the filtered task list
      */
     public TaskList filter(String keyword) {
         ArrayList<Task> filteredTasks = this.tasks.stream()

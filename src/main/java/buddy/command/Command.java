@@ -64,7 +64,7 @@ public abstract class Command {
     }
 
     /**
-     * Execute string.
+     * Retrieves string response of command execution.
      *
      * @param taskList    The task list
      * @param dataStorage The data storage from hard disk

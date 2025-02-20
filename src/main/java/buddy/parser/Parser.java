@@ -10,6 +10,7 @@ import buddy.command.Command;
 import buddy.command.CommandType;
 import buddy.command.DeleteCommand;
 import buddy.command.FindCommand;
+import buddy.command.HelpCommand;
 import buddy.command.ListTasksCommand;
 import buddy.command.MarkCommand;
 import buddy.command.UnmarkCommand;
@@ -79,6 +80,8 @@ public class Parser {
                 args.add(field);
                 args.add(newInfo);
                 return new UpdateCommand(args);
+            case HELP:
+                return new HelpCommand();
             default:
                 throw new BuddyInvalidCommandException(userInput);
             }

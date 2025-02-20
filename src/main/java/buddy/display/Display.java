@@ -2,6 +2,7 @@ package buddy.display;
 
 import java.util.Scanner;
 
+import buddy.command.CommandType;
 import buddy.exception.BuddyException;
 import buddy.task.Task;
 import buddy.task.TaskList;
@@ -131,16 +132,32 @@ public class Display {
     }
 
     /**
-     * Update task string.
+     * Returns string response of update command.
      *
      * @param task the task
-     * @return the string
+     * @return string response of update command
      */
     public static String updateTask(Task task) {
         return Display.BORDER + String.format("\n  Noted. I've edited this task:\n  %s\n",
                 task.toString())
                 + Display.BORDER;
     }
+
+    /**
+     * Returns string response of help command.
+     *
+     * @return string response of help command
+     */
+    public static String help() {
+        StringBuilder result = new StringBuilder();
+
+        for (CommandType command : CommandType.values()) {
+            result.append(command.name()).append(": ").append(command.toString()).append("\n");
+        }
+
+        return Display.BORDER + "\n" + result + Display.BORDER;
+    }
+
 
     /**
      * Returns the next input in the newline.

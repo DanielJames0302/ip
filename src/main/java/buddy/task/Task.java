@@ -33,14 +33,14 @@ public abstract class Task {
     }
 
     /**
-     * Mark the task as done.
+     * Marks the task as done.
      */
     public void markTaskAsDone() {
         this.isDone = true;
     }
 
     /**
-     * Mark the task as not done.
+     * Marks the task as not done.
      */
     public void unmarkTaskAsDone() {
         this.isDone = false;
@@ -59,7 +59,7 @@ public abstract class Task {
 
 
     /**
-     * Update task.
+     * Updates task.
      */
     public abstract void updateTask(String field, String newValue) throws BuddyException;
 

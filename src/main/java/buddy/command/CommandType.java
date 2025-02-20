@@ -13,7 +13,8 @@ public enum CommandType {
     UNMARK("unmark INDEX"),
     DELETE("delete INDEX"),
     FIND("find KEYWORD"),
-    UPDATE("update INDEX /FIELD_TO_UPDATE NEW_INFO");
+    UPDATE("update INDEX /FIELD_TO_UPDATE NEW_INFO"),
+    HELP("help");
 
     private final String representation;
 

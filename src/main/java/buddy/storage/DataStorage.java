@@ -97,7 +97,7 @@ public class DataStorage {
     }
 
     /**
-     * Save tasks to storage.
+     * Saves tasks to storage.
      *
      * @param taskList the task list
      * @throws BuddyException the buddy exception
@@ -110,7 +110,7 @@ public class DataStorage {
     }
 
     /**
-     * Write to file.
+     * Writes to file.
      *
      * @param entryLine  the entry line
      * @param isAppended the is appended

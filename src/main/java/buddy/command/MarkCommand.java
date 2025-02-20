@@ -11,7 +11,7 @@ import buddy.task.Task;
 import buddy.task.TaskList;
 
 /**
- * The type Mark command.
+ * Represents the type Mark command.
  */
 public class MarkCommand extends Command {
 
