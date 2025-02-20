@@ -67,7 +67,7 @@ Examples:
 
 Examples:
 
-* `event friend meeting /from 2024-02-02 1400 /to 2024-02-02 1400`
+* `event friend meeting /from 2024-02-02 1400 /to 2024-02-02 1600`
 
 ### Listing all tasks in the list: `list`
 
@@ -87,13 +87,13 @@ Examples:
 Examples:
 
 - `update 1 /description go to gym` \
-  Edits the task description the 1st task of type Todo to be `go to gym`.
+  Edits the task description of the 1st task of type Todo to be `go to gym`.
 - `update 2 /by 2025-03-15 1400`\
   Edits the due date of the 2nd task of type Deadline to be `2025-03-15 1400`.
 
 ### Locating persons by name: `find`
 
-- **Purpose**: Finds persons whose names contain any of the given keywords.
+- **Purpose**: Finds tasks with description containing the given keyword.
 - **Format**: `find KEYWORD`
 
 
@@ -108,7 +108,7 @@ Examples:
 
 ### Deleting a person : `delete`
 
-- **Purpose**: Deletes the specified task from the current list.
+- **Purpose**: Deletes the specified task with index from the current list.
 - **Format**: `delete INDEX`
 
 
@@ -143,7 +143,7 @@ There is no need to save manually.
 * **Deadline** `deadline TASK_NAME /by DUE_DATE` <br>
   e.g. `deadline presentation /by 2025-12-02 1000`
 * **Event** `event TASK_NAME /from START_DATE /to END_DATE` <br>
-  e.g. `event friend meeting /from 2024-02-02 1400 /to 2024-02-02 1400`
+  e.g. `event friend meeting /from 2024-02-02 1400 /to 2024-02-02 1600`
 * **Delete** : `delete INDEX` <br> e.g. `delete 3`
 * **Mark** : `mark INDEX` <br> e.g. `mark 1`
 * **Unmark** : `unmark INDEX` <br>
