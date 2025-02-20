@@ -64,7 +64,7 @@ class TaskListTest {
 
     @Test
     void getTask_outOfBounds_throwsException() {
-        assertThrows(AssertionError.class, () -> taskList.getTask(10));
+        assertThrows(IndexOutOfBoundsException.class, () -> taskList.getTask(10));
     }
 
     @Test
@@ -114,6 +114,6 @@ class TaskListTest {
 
     @Test
     void filter_nullKeyword_throwsException() {
-        assertThrows(AssertionError.class, () -> taskList.filter(null));
+        assertThrows(NullPointerException.class, () -> taskList.filter(null));
     }
 }
