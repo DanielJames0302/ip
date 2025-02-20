@@ -13,7 +13,13 @@ traditional GUI apps. Curious? Jump to the **Quick Start** to get started.
 - Ensure you have Java `11` or above installed in your Computer.
 - Download the latest `.jar` file under `Releases`
 - Copy the file to the folder you want to use as the home folder for your Buddy chatbot.
+  <br>**Option 1 (Recommended)**:
+- Open your command line terminal and navigate to the home folder of the file
+- Type ```java -jar buddy.jar``` to run
+  <br>**Option 2**:
 - Double-click the file to start the app. The GUI should appear in a few seconds.
+
+---
 
 - Some example commands you can try:
 
