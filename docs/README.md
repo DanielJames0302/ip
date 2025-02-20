@@ -121,6 +121,11 @@ Examples:
 - **Purpose**: Exits the program.
 - **Format**: `bye`
 
+### Exiting the program : `help`
+
+- **Purpose**: Lists the available commands of the program.
+- **Format**: `help`
+
 ### Saving the data
 
 The data of Buddy chatbot are saved in the hard disk automatically after any command that changes the data.
@@ -143,6 +148,7 @@ There is no need to save manually.
   e.g. `find homework`
 * **List** : `list`
 * **Bye** : `bye`
+* **Help** : `help`
 
 
 
