@@ -53,7 +53,7 @@ Examples:
 
 - **Purpose**: Adds a deadline task to the task list
 - **Format**: `deadline TASK_NAME /by DUE_DATE`
-- `DUE_DATE` should follow this format `yyyy-MM-dd HHmm HHmm` (e.g. `2025-02-02 1600`)
+- `DUE_DATE` should follow this format `yyyy-MM-dd HHmm` (e.g. `2025-02-02 1600`)
 
 Examples:
 
@@ -74,7 +74,7 @@ Examples:
 - **Purpose**: Shows a list of all tasks in the current list.
 - **Format**: `list`
 
-### Editing a person : `update`
+### Editing a task : `update`
 
 - **Purpose**: Edits an existing tasks in the current list.
 - **Format**: `update INDEX /FIELD_TO_UPDATE NEW_INFO`
@@ -91,7 +91,7 @@ Examples:
 - `update 2 /by 2025-03-15 1400`\
   Edits the due date of the 2nd task of type Deadline to be `2025-03-15 1400`.
 
-### Locating persons by name: `find`
+### Finding tasks by description: `find`
 
 - **Purpose**: Finds tasks with description containing the given keyword.
 - **Format**: `find KEYWORD`
@@ -106,7 +106,7 @@ Examples:
 - `find homework`\
   Returns `1. [T][] homework`
 
-### Deleting a person : `delete`
+### Deleting a task : `delete`
 
 - **Purpose**: Deletes the specified task with index from the current list.
 - **Format**: `delete INDEX`
@@ -127,7 +127,7 @@ Examples:
 - **Purpose**: Exits the program.
 - **Format**: `bye`
 
-### Exiting the program : `help`
+### Listing available commands : `help`
 
 - **Purpose**: Lists the available commands of the program.
 - **Format**: `help`
